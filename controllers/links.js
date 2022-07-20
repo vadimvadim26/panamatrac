@@ -1,4 +1,4 @@
-const Links = require('../models/links')
+const Links = require('../models/Links')
 const errorHandler = require('../utils/errorHandler')
 
 module.exports.hotlink = async function(req, res){

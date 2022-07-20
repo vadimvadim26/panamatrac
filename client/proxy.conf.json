@@ -1,12 +1,12 @@
 {
 	"/api/*":{
-		"target": "http://panamatrack.herokuapp.com",
+		"target": "http://domain.com",
 		"secure": false,
 		"loglevel": "debug",
 		"changeOrigin": true
 	},
 	"/uploads/*":{
-		"target": "http://panamatrack.herokuapp.com",
+		"target": "http://domain.com",
 		"secure": false,
 		"loglevel": "debug",
 		"changeOrigin": true
