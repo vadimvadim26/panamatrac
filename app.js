@@ -9,7 +9,7 @@ const prelandingsRoutes = require('./routes/prelandings')
 const geosofoffersRoutes = require('./routes/geosofoffers')
 const keys = require('./config/keys')
 const app = express()
-
+const path = require('path')
 
 mongoose.connect(keys.mongoURI)
 	.then(() => console.log('MongoDB conected'))
@@ -30,6 +30,12 @@ app.use('/api/links', linksRoutes)
 app.use('/api/prelandings', prelandingsRoutes)
 app.use('/api/geosofoffers', geosofoffersRoutes)
 
+if (process.env.NODE_ENV === 'production'){
+	app.use('/', express.static(path.join(__dirname, 'client/dist/keitaro-api-project')))
 
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client/dist/keitaro-api-project', 'index.html'))
+	})
+}
 
 module.exports = app
