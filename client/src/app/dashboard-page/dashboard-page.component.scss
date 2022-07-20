@@ -1,0 +1,195 @@
+.offer_container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.offer_box{
+  padding: 10px;
+  display: flex;
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  flex-wrap: wrap;
+}
+.linkcreator_box{
+  padding: 15px;
+}
+
+.offers-card{
+  width: 263px;
+
+  margin: 5px;
+
+  .mat-card-avatar {
+
+    width: 72px;
+    height: 103px;
+
+    img.offer_img{
+      width: 100%;
+    }
+
+  }
+}
+
+.mat-menu-content {
+  padding-right: 24px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+}
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
+  background-color: #3a91b7;
+}
+
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-czech{
+  background-color: #45bc65e6;
+  color: #fff;
+}
+
+.mat-card>.mat-card-actions:last-child {
+  margin-bottom: -8px;
+  padding-bottom: 0;
+  padding-left: 8px;
+}
+.mat-card {
+
+  color: rgb(0 0 0 / 68%);
+}
+.mat-card-content {
+  margin-top: 18px;
+}
+
+.mat-menu-panel {
+
+  overflow: hidden;
+
+}
+.chip_box{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 17px;
+}
+
+.preland__chips_box{
+  padding: 14px
+}
+
+.preland-about-image >img{
+  width: 100%;
+  border-radius: 100%;
+}
+.prelanding-about-content{
+  margin-top: 30px;
+}
+.prelanding-about-big-img{
+  width: 247px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .prelanding-about-big-img-box{
+    width: 80%;
+  }
+}
+.prelandings-link{
+
+}
+.linkcreator_box {
+  padding: 15px;
+  min-width: 430px;
+}
+
+.disp_non{
+  display: none;
+}
+
+.active-butt{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  p{
+    font-size: 12px;
+    font-style: italic;
+    color: #e09393;
+    padding-left: 3px;
+  }
+}
+
+.inactive-butt{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  mat-icon{
+    color: #4d49c4b5
+  }
+  p{
+    font-size: 12px;
+    font-style: italic;
+    color: #93d1e0;
+    padding-left: 3px;
+  }
+}
+
+.ES_color{
+  background-color: #ffd740;
+}
+.IT_color{
+  background-color: #3a91b7;
+  color: #fff;
+}
+.CO_color{
+  background-color: #88edb7;
+  color: #fff;
+}
+.MX_color{
+  background-color: #4fbbc0;
+  color: #fff;
+}
+.RO_color{
+  background-color: rgba(69, 188, 101, 0.9019607843);
+  color: #fff;
+}
+.PL_color{
+  background-color: #f44336;
+  color: #fff;
+}
+.CZ_color{
+  background-color: rgba(69, 188, 101, 0.9019607843);
+}
+.HU_color{
+  background-color: rgb(230 128 119 / 90%);
+  color: #fff;
+}
+.PH_color{
+  background-color: rgb(215 103 193 / 80%);
+  color: #fff;
+}
+.SK_color{
+  background-color: rgb(217 123 147 / 76%);
+  color: #fff;
+}
+.BG_color{
+  background-color: #7d66dbd4;
+  color: #fff;
+}
+.GR_color{
+  background-color: #739ed9;
+  color: #fff;
+}
+.PT_color{
+  background-color: #e6a559c9;
+  color: #fff;
+}
+.PE_color{
+  background-color: #c85cf0cf;
+  color: #fff;
+}
+.AR_color{
+  background-color: #d76262;
+  color: #fff;
+}
+.ID_color{
+  background-color: #c181e2;
+  color: #fff;
+}

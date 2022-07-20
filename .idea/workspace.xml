@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ed0bb601-9039-419c-8a66-84207e17401a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="46520972-2098-47f3-ac34-d6b433de0ca6" />
+  </component>
+  <component name="ProjectId" id="2B7T1QUpvWKNh5d2JCFJSfU63aM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/app/shared/services" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="ts.external.directory.path" value="C:\wamp64\www\keitaro-api-project\client\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\keitaro-api-project\client\src\app\shared\services" />
+      <recent name="C:\wamp64\www\keitaro-api-project\controllers" />
+      <recent name="C:\wamp64\www\keitaro-api-project\models" />
+      <recent name="C:\wamp64\www\keitaro-api-project\routes" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed0bb601-9039-419c-8a66-84207e17401a" name="Default Changelist" comment="" />
+      <created>1656255910006</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656255910006</updated>
+      <workItem from="1656255911990" duration="44792000" />
+      <workItem from="1656369721678" duration="19074000" />
+      <workItem from="1656537193692" duration="9336000" />
+      <workItem from="1656590111948" duration="4198000" />
+      <workItem from="1656703548685" duration="5310000" />
+      <workItem from="1656758720296" duration="3253000" />
+      <workItem from="1656777735433" duration="11780000" />
+      <workItem from="1656853950015" duration="18555000" />
+      <workItem from="1656878337692" duration="6332000" />
+      <workItem from="1657113056726" duration="18574000" />
+      <workItem from="1657181750138" duration="35694000" />
+      <workItem from="1657353335068" duration="13355000" />
+      <workItem from="1657704902585" duration="9052000" />
+      <workItem from="1657955896923" duration="43540000" />
+      <workItem from="1658138116939" duration="12994000" />
+      <workItem from="1658302587820" duration="1809000" />
+      <workItem from="1658307019036" duration="1307000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1658306145230">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.672@0.0.1280.672" timestamp="1658306145230" />
+    <state x="0" y="105" key="#com.intellij.ide.util.MemberChooser" timestamp="1656266540132">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="0" y="105" key="#com.intellij.ide.util.MemberChooser/0.0.1280.672@0.0.1280.672" timestamp="1656266540132" />
+    <state x="389" y="129" key="FileChooserDialogImpl" timestamp="1658307438213">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="389" y="129" key="FileChooserDialogImpl/0.0.1280.672@0.0.1280.672" timestamp="1658307438213" />
+    <state x="498" y="235" key="Github.ShareDialog" timestamp="1658308161919">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="498" y="235" key="Github.ShareDialog/0.0.1280.672@0.0.1280.672" timestamp="1658308161919" />
+    <state x="386" y="42" key="Github.UntrackedFilesDialog" timestamp="1658308323618">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="386" y="42" key="Github.UntrackedFilesDialog/0.0.1280.672@0.0.1280.672" timestamp="1658308323618" />
+    <state x="110" y="0" key="SettingsEditor" timestamp="1658307584946">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="110" y="0" key="SettingsEditor/0.0.1280.672@0.0.1280.672" timestamp="1658307584946" />
+    <state x="297" y="149" key="run.anything.popup" timestamp="1658169259730">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="297" y="149" key="run.anything.popup/0.0.1280.672@0.0.1280.672" timestamp="1658169259730" />
+    <state x="303" y="0" width="672" height="678" key="search.everywhere.popup" timestamp="1657119092946">
+      <screen x="0" y="0" width="1280" height="672" />
+    </state>
+    <state x="303" y="0" width="672" height="678" key="search.everywhere.popup/0.0.1280.672@0.0.1280.672" timestamp="1657119092946" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.ts</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

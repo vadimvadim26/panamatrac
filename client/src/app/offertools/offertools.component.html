@@ -1,0 +1,39 @@
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-chip-list aria-label="Add Offer">
+        <mat-chip color="accent" selected>Add Offer
+          <mat-icon style="font-size: 16px" class="example-tab-icon">handyman</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </ng-template>
+    <app-offercreator></app-offercreator>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-chip-list aria-label="Add Prelandings">
+        <mat-chip color="primary" selected>Add Prelandings
+          <mat-icon style="font-size: 16px" class="example-tab-icon">pets</mat-icon>
+        </mat-chip>
+
+      </mat-chip-list>
+
+
+    </ng-template>
+    <app-prelandingcreator></app-prelandingcreator>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-chip-list aria-label="Edit Offer">
+        <mat-chip >Domain loader
+          <mat-icon style="font-size: 16px" class="example-tab-icon">upload</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </ng-template>
+    <app-domaincreator></app-domaincreator>
+  </mat-tab>
+
+</mat-tab-group>
+

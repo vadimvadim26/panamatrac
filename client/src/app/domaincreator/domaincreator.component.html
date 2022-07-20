@@ -1,0 +1,29 @@
+<form class="offer_creator_wrap"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+>
+  <mat-card class="offer_creator-card">
+
+    <mat-card-header>
+
+      <mat-card-title>Create domains</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Outline form field</mat-label>
+          <textarea matInput placeholder="Placeholder"
+                    formControlName="domains"></textarea>
+
+        </mat-form-field>
+      </p>
+
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button type="submit" color="primary" mat-button>Loading domain</button>
+    </mat-card-actions>
+
+  </mat-card>
+</form>

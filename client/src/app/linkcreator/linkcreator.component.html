@@ -1,0 +1,82 @@
+<mat-card class="example-card">
+
+  <mat-card-header>
+
+
+
+
+    <div mat-card-avatar class="offer-image"><img class="offer_img" [src]="newbundle.offer_img"></div>
+
+
+    <mat-card-title>
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip *ngIf="newbundle.preland_img">
+          <img matChipAvatar [src]="newbundle.preland_img"/>
+          {{newbundle.name}}
+          <a target="_blank" href="{{newbundle.preland_url}}"><mat-icon class="href_icon">open_in_new</mat-icon></a>
+        </mat-chip>
+      </mat-chip-list>
+    </mat-card-title>
+    <mat-card-subtitle>{{newbundle.offer}}  {{newbundle.geo}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+
+  	<div class="form_content_box">
+
+  		<form class="linkcreator-form"
+            [formGroup]="form"
+            (ngSubmit)="onSubmit()"
+      >
+
+  <mat-form-field appearance="outline">
+    <mat-label>Facebook pixel</mat-label>
+    <input matInput formControlName="sub1">
+    <mat-icon class="field_icons" matSuffix>developer_mode</mat-icon>
+
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>User name</mat-label>
+    <input matInput disabled value="Gosha" >
+    <mat-icon class="field_icons" matSuffix>sentiment_very_satisfied</mat-icon>
+
+  </mat-form-field>
+
+ <mat-form-field appearance="outline">
+    <mat-label>Campaign name</mat-label>
+    <input matInput formControlName="sub3">
+    <mat-icon class="field_icons" matSuffix>route</mat-icon>
+
+  </mat-form-field>
+  <div class="link-button-row">
+  <button
+    [disabled]="!newbundle.offer || form.disabled"
+    mat-raised-button color="accent" type="submit">Create link <mat-icon>add_link</mat-icon></button>
+	</div>
+</form>
+
+</div>
+  </mat-card-content>
+  <mat-list *ngIf="finish">
+    <mat-list-item>
+      <div class="finish_link_block">
+        <span class="finish_link_text">
+          https://{{finishres.name}}/?e=3dffsdfoOmdsfsdf3mdjjddjHBBglsm
+        </span>
+        <div class="icon_list">
+          <mat-icon class="copy">content_copy</mat-icon>
+          <mat-icon class="del">delete</mat-icon>
+        </div>
+
+
+      </div>
+
+    </mat-list-item>
+  </mat-list>
+  <mat-card-actions>
+
+  </mat-card-actions>
+
+</mat-card>
