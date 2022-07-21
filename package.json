@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node app.js",
+    "start": "cross-env NODE_ENV=production npm run server",
     "server": "nodemon index",
     "client-install": "npm install --prefix client",
     "client": "npm run watch --prefix client",
