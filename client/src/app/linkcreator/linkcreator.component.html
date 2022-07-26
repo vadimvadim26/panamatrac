@@ -52,7 +52,7 @@
   </mat-form-field>
   <div class="link-button-row">
   <button
-    [disabled]="!newbundle.offer || form.disabled"
+    [disabled]="start || !newbundle.offer || form.disabled"
     mat-raised-button color="accent" type="submit">Create link <mat-icon>add_link</mat-icon></button>
 	</div>
 </form>

@@ -43,22 +43,18 @@ module.exports.update = async function (req, res) {
         if (req.body.domain) {
 
             const links = await Links.updateOne(
-                {domain: req.body.domain, status: 'free'},
-                {status: req.body.user_id,
+                {domain: req.body.domain},
+                {status: 'inwork',
                         user_id: req.body.user_id}
             )
             res.status(200).json(links)
-        }else{
-            res.status(401).json({
-                message: 'Link busy'
-            })
         }
     } else if(req.body.offer){
 
         if (req.body.domain) {
             console.log(req.body)
             const links = await Links.updateOne(
-                {domain: req.body.domain, user_id: req.body.user_id, status: req.body.user_id},
+                {domain: req.body.domain, user_id: req.body.user_id, status: 'inwork'},
                 {user_id: req.body.user_id,
                     status: req.body.status,
                     domain: req.body.domain,
