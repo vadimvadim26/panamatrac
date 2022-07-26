@@ -60,8 +60,7 @@ constructor(private  linksService: LinksServices,
           this.linksService.activelink(activedom).subscribe(links => {
           this.campaignService.getonecamp().subscribe(camp =>{
             this.campaign = camp
-
-            for(let c=0; c<this.campaign.length; c++){
+                        for(let c=0; c<this.campaign.length; c++){
               let camp = this.campaign[c]
               if(camp.group_id === '95' || camp.name === this.newbundle.geo){
                 this.campaignService.create(camp.id).subscribe(camp =>{
@@ -138,7 +137,10 @@ constructor(private  linksService: LinksServices,
               }
             }
 
-          })
+          },
+            error => {
+              console.log(error)
+            })
           })
         })
         }else if (!this.form.value.sub1 && !this.form.value.sub3){
