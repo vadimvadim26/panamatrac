@@ -117,6 +117,7 @@ constructor(private  linksService: LinksServices,
                                     this.snackBar.open('Link: ' + this.domains.domain + ' created', 'ok')
                                     this.link = links
                                     this.form.enable()
+                                    this.start = false
                                   })
                                   this.campaignService.updateDomain(this.domains.domain_id, newlink.campaign_id).subscribe(res => {
                                     this.response = res
@@ -151,6 +152,7 @@ constructor(private  linksService: LinksServices,
           } else if (!this.form.value.sub1) {
             this.snackBar.open('Error, field FbPixel required', 'ok')
             this.form.enable()
+            this.start = false
           } else if (!this.form.value.sub2) {
             this.snackBar.open('Error, field Campaign name required', 'ok')
             this.form.enable()
