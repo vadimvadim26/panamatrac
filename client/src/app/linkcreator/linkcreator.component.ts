@@ -157,7 +157,7 @@ constructor(private  linksService: LinksServices,
             this.snackBar.open('Error, field Campaign name required', 'ok')
             this.form.enable()
           }
-        }, Math.floor(Math.random() * 1000)
+        }, Math.floor(Math.random() * 1372)
       )
     }
   }
