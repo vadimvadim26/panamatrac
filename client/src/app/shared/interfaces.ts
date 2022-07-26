@@ -44,3 +44,9 @@ export interface Prelandings {
   track_id: string
   _id?: string
 }
+
+export interface Camps {
+  camp_id: string
+  api: string
+  url: string
+}

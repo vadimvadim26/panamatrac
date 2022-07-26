@@ -1,86 +1,61 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Api-Key': '2037cd82a8121f897a835f93965a7ae7',
+    'Accept': '*'
+  })
+}
 @Injectable({
   providedIn: 'root'
 })
+
 export class CampaignServices{
   response: any
+  options: any
+
   constructor( private http: HttpClient) {
   }
 
   getonecamp(){
-    return this.http.get('http://178.62.251.36/admin_api/v1/campaigns', {
-      headers: new HttpHeaders({
-        'Api-Key': '2037cd82a8121f897a835f93965a7ae7'
-      })
-    })
+    return this.http.get('/admin_api/v1/campaigns', httpOptions)
   }
 
   getstreamofcamp(campid:string){
-    return this.http.get('http://178.62.251.36/admin_api/v1/campaigns/'+campid+'/streams', {
-      headers: new HttpHeaders({
-        'Api-Key': '2037cd82a8121f897a835f93965a7ae7'
-      })
-    })
+    return this.http.get('/admin_api/v1/campaigns/'+campid+'/streams', httpOptions)
   }
 
   getDomainid(){
-    return this.http.get('http://178.62.251.36/admin_api/v1/domains', {
-      headers: new HttpHeaders({
-        'Api-Key': '2037cd82a8121f897a835f93965a7ae7'
-      })
-    })
+    return this.http.get('/admin_api/v1/domains', httpOptions)
   }
 
   create(id: string){
-   return this.http.post('http://178.62.251.36/admin_api/v1/campaigns/'+id+'/clone', {
-      headers: new HttpHeaders({
-        'Api-Key': '2037cd82a8121f897a835f93965a7ae7'
-      })
-    })
-
+    return this.http.post('/admin_api/v1/campaigns/'+id+'/clone', '', httpOptions)
   }
 
   updateStream(newstream: any){
-
-  let data = {
-    landings:[{
-      landing_id:newstream.black_id
-      }]
-  }
-    return this.http.put('http://178.62.251.36/admin_api/v1/streams/'+newstream.stream_b, data, {
-      headers: new HttpHeaders({
-        'Api-Key': '2037cd82a8121f897a835f93965a7ae7'
-      })
-    } )
-
+    let body = {
+      "landings": [{"landing_id": newstream.black_id}]
+    }
+    return this.http.put<any>('/admin_api/v1/streams/'+newstream.stream_b, {
+      "landings": [{"landing_id": newstream.black_id}]
+    }, httpOptions )
   }
 
   updateCampaign(hotcamp: any){
-    let data = {
+    let body = {
       name: hotcamp.geo+'_'+hotcamp.offer+'_'+hotcamp.preland,
       group_id: hotcamp.group_id
     }
-
-    return this.http.put('http://178.62.251.36/admin_api/v1/campaigns/'+hotcamp.camp_id, data, {
-      headers: new HttpHeaders({
-        'Api-Key': '2037cd82a8121f897a835f93965a7ae7'
-      })
-    } )
+    return this.http.put('/admin_api/v1/campaigns/'+hotcamp.camp_id, body, httpOptions)
   }
 
   updateDomain(domain: string, campaign: string){
-    let data = {
+    let body = {
       default_campaign_id: campaign
   }
-
-
-    return this.http.put('http://178.62.251.36/admin_api/v1/domains/'+domain, data, {
-      headers: new HttpHeaders({
-        'Api-Key': '2037cd82a8121f897a835f93965a7ae7'
-      })
-    } )
+    return this.http.put('/admin_api/v1/domains/'+domain, body, httpOptions )
   }
 
 }

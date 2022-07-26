@@ -14,8 +14,7 @@ export class TokenInterceptor implements HttpInterceptor{
     if(this.auth.isAuthenticated()){
       req = req.clone({
         setHeaders: {
-          Authorization: this.auth.getToken(),
-          'Api-Key': '2037cd82a8121f897a835f93965a7ae7'
+          Authorization: this.auth.getToken()
         }
       })
     }

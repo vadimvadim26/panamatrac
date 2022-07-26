@@ -60,6 +60,7 @@ constructor(private  linksService: LinksServices,
           this.linksService.activelink(activedom).subscribe(links => {
           this.campaignService.getonecamp().subscribe(camp =>{
             this.campaign = camp
+
             for(let c=0; c<this.campaign.length; c++){
               let camp = this.campaign[c]
               if(camp.group_id === '95' || camp.name === this.newbundle.geo){
@@ -83,7 +84,8 @@ constructor(private  linksService: LinksServices,
                         stream_b: this.stream_b,
                         stream_w: this.stream_w
                       }
-                      this.campaignService.updateStream(newstream).subscribe(res =>{
+                      this.campaignService.updateStream(newstream)
+                        .subscribe(res =>{
                         let hotcamp = {
                           camp_id: this.hotcampaignid,
                           geo: this.newbundle.geo,
@@ -135,6 +137,7 @@ constructor(private  linksService: LinksServices,
                 })
               }
             }
+
           })
           })
         })

@@ -278,7 +278,7 @@ export class DashboardPageComponent implements OnInit {
 
   aboutPreland(track_id: string, avatar: string){
     console.log(track_id)
-    this.http.get('http://178.62.251.36/admin_api/v1/landing_pages/'+track_id, {
+    this.http.get('/admin_api/v1/landing_pages/'+track_id, {
       headers: new HttpHeaders({
         'Api-Key': '2037cd82a8121f897a835f93965a7ae7'
       })
@@ -298,8 +298,6 @@ export class DashboardPageComponent implements OnInit {
       }
     })
 
-
-  console.log(this.aboutoffer)
   }
 }
 
