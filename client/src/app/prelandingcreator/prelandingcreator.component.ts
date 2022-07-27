@@ -52,7 +52,7 @@ export class PrelandingcreatorComponent implements OnInit {
 
     if(this.form.value.name && this.imagedata) {
 
-      this.http.get('http://178.62.251.36/admin_api/v1/landing_pages/' + this.form.value.name, {
+      this.http.get('/admin_api/v1/landing_pages/' + this.form.value.name, {
         headers: new HttpHeaders({
           'Api-Key': '2037cd82a8121f897a835f93965a7ae7'
         })
