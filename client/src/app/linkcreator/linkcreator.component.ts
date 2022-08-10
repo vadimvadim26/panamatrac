@@ -113,12 +113,17 @@ constructor(private  linksService: LinksServices,
                                   this.link = newlink
                                   this.campaignService.updateCampaign(hotcamp).subscribe(res => {
                                   })
-                                  this.linksService.update(this.link).subscribe(links => {
+
+
+                                  this.campaignService.subEncoder()
+
+                                  /*this.linksService.update(this.link).subscribe(links => {
                                     this.snackBar.open('Link: ' + this.domains.domain + ' created', 'ok')
                                     this.link = links
                                     this.form.enable()
                                     this.start = false
                                   })
+
                                   this.campaignService.updateDomain(this.domains.domain_id, newlink.campaign_id).subscribe(res => {
                                     this.response = res
 
@@ -129,7 +134,7 @@ constructor(private  linksService: LinksServices,
                                     } else {
                                       this.finish = false
                                     }
-                                  })
+                                  })*/
                                   this.form.reset()
                                   this.form.enable()
 

@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Offers} from "../interfaces";
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -57,5 +58,18 @@ export class CampaignServices{
   }
     return this.http.put('/admin_api/v1/domains/'+domain, body, httpOptions )
   }
+
+  subEncoder(){
+    const formData = new FormData()
+    formData.append('link', 'https://log.lg')
+    formData.append('pix', '2345334546454')
+    formData.append('name', 'georg')
+    formData.append('camp', 'tela')
+    return this.http.post('/sub_encoder', formData).subscribe(res => {
+      console.log(res)
+    })
+  }
+
+
 
 }
