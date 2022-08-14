@@ -3,7 +3,7 @@ const errorHandler = require('../utils/errorHandler')
 
 module.exports.getAll = async function(req, res){
 
-	if(req.user.rights === 'Developer'){
+	if(req.user.rights === 'Developer' || req.user.rights === 'Admin'){
 	try{
 		const offers = await Offers.find()
 		res.status(200).json(offers)

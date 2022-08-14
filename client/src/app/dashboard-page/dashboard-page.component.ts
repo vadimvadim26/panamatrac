@@ -29,6 +29,7 @@ export class DashboardPageComponent implements OnInit {
   localname: any
   disabled: boolean = false
   developer: boolean = false
+  admin: boolean = false
   user: any
   response: any
   prelandresponse: any
@@ -95,6 +96,8 @@ export class DashboardPageComponent implements OnInit {
         this.disabled = true
       }else if(this.user.rights === 'Developer'){
         this.developer = true
+      }else if(this.user.rights === 'Admin'){
+        this.admin = true
       }
     }
 

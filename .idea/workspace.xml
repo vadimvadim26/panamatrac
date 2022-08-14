@@ -10,15 +10,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed0bb601-9039-419c-8a66-84207e17401a" name="Default Changelist" comment="rm php proxy &#10;add new encoder js">
+    <list default="true" id="ed0bb601-9039-419c-8a66-84207e17401a" name="Default Changelist" comment="big fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/linkcreator/linkcreator.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/linkcreator/linkcreator.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/links-page/links-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/links-page/links-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/links-page/links-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/links-page/links-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/services/campaign.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/services/campaign.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/services/links.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/services/links.services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/links.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/links.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/links.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/links.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/offers.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/offers.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +132,7 @@
       <workItem from="1659954892632" duration="719000" />
       <workItem from="1659961745788" duration="65000" />
       <workItem from="1660134348770" duration="2176000" />
-      <workItem from="1660469563820" duration="30946000" />
+      <workItem from="1660469563820" duration="32228000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1658323024375</created>
@@ -229,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660484662948</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="big fix">
+      <created>1660504916907</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1660504916907</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +263,8 @@
     <MESSAGE value="last proxy fix" />
     <MESSAGE value="php proxy test" />
     <MESSAGE value="rm php proxy &#10;add new encoder js" />
-    <option name="LAST_COMMIT_MESSAGE" value="rm php proxy &#10;add new encoder js" />
+    <MESSAGE value="big fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="big fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
