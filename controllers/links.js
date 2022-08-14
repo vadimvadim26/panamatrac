@@ -2,12 +2,23 @@ const Links = require('../models/Links')
 const errorHandler = require('../utils/errorHandler')
 
 module.exports.hotlink = async function(req, res){
-    try{
-        const links = await Links.findOne({status: 'free'})
-        res.status(200).json(links)
-    }catch (e){
-        errorHandler(res, e)
-    }
+        try{
+            const links = await Links.findOne({status: 'free'})
+            res.status(200).json(links)
+        }catch (e){
+            errorHandler(res, e)
+        }
+}
+
+module.exports.getById = async function(req, res){
+           try{
+            const links = await Links.find({user_id: req.user._id,status: 'active'})
+            res.status(200).json(links)
+        }catch (e){
+            errorHandler(res, e)
+        }
+
+
 }
 
 module.exports.create = async function(req, res){
@@ -52,7 +63,7 @@ module.exports.update = async function (req, res) {
     } else if(req.body.offer){
 
         if (req.body.domain) {
-            console.log(req.body)
+            console.log(req.body.white)
             const links = await Links.updateOne(
                 {domain: req.body.domain, user_id: req.body.user_id, status: 'inwork'},
                 {user_id: req.body.user_id,
@@ -67,7 +78,8 @@ module.exports.update = async function (req, res) {
                     stream_w_id: req.body.stream_w_id,
                     geo: req.body.geo,
                     offer: req.body.offer,
-                    preland: req.body.preland
+                    preland: req.body.preland,
+                    white: req.body.white
                 }
             )
             res.status(200).json(links)

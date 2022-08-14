@@ -12,32 +12,15 @@
 
   <mat-accordion class="example-headers-align">
 
-    <mat-expansion-panel >
+    <mat-expansion-panel *ngFor="let link of links">
 
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <mat-chip class="ES_color">ES </mat-chip>
-          <p class="link-subtitle">KetoLight <span>ElPais</span></p>
+          <mat-chip class="{{link.geo}}_color">{{link.geo}} </mat-chip>
+          <p class="link-subtitle"> {{ link.offer }} <span> {{ link.preland }} </span></p>
         </mat-panel-title>
         <mat-panel-description style="    font-size: 12px;">
-          https://beoloi.fun/?e=SUNQUi9lRmhld0t5WGJOdlZTMjcveU1wY1VEbXpzdmJteU5yV3VtYVJyYz0
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-
-      <mat-action-row>
-        <button mat-button color="warn" >Remove</button>
-        <button mat-button color="primary" >Banned</button>
-      </mat-action-row>
-    </mat-expansion-panel>
-    <mat-expansion-panel >
-
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <mat-chip class="IT_color">IT </mat-chip>
-          <p class="link-subtitle">KetoLight <span>Anna</span></p>
-        </mat-panel-title>
-        <mat-panel-description style="    font-size: 12px;">
-          https://beoloi.fun/?e=SUNQUi9lRmhld0t5WGJOdlZTMjcveU1wY1VEbXpzdmJteU5yV3VtYVJyYz0
+          {{ link.full_link }}
         </mat-panel-description>
       </mat-expansion-panel-header>
 

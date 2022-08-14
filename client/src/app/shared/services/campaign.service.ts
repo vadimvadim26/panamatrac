@@ -1,6 +1,5 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Offers} from "../interfaces";
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -17,6 +16,12 @@ export class CampaignServices{
   options: any
 
   constructor( private http: HttpClient) {
+  }
+
+
+
+  getWhiteland(){
+    return this.http.get('/admin_api/v1/landing_pages', httpOptions)
   }
 
   getonecamp(){
@@ -36,12 +41,16 @@ export class CampaignServices{
   }
 
   updateStream(newstream: any){
-    let body = {
-      "landings": [{"landing_id": newstream.black_id}]
-    }
-    return this.http.put<any>('/admin_api/v1/streams/'+newstream.stream_b, {
-      "landings": [{"landing_id": newstream.black_id}]
-    }, httpOptions )
+
+      this.http.put<any>('/admin_api/v1/streams/'+newstream.stream_b, {
+        "landings": [{"landing_id": newstream.black_id}]
+      }, httpOptions )
+
+    return this.http.put<any>('/admin_api/v1/streams/'+newstream.stream_w, {
+        "landings": [{"landing_id": newstream.white_id}]
+      }, httpOptions )
+
+
   }
 
   updateCampaign(hotcamp: any){

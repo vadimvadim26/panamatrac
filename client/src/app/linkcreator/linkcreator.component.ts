@@ -18,6 +18,7 @@ export class LinkcreatorComponent{
   stream_b: string = ''
   hotcampaignid: string = ''
   stream_w: string = ''
+  white: string = ''
   encryptedSub: any
   streams: any
   campaign: any
@@ -81,20 +82,71 @@ constructor(private  linksService: LinksServices,
                                   this.stream_w = stream.id
                                 }
                               }
-                              let newstream = {
-                                black_id: this.newbundle.track_id,
-                                white_id: '',
-                                stream_b: this.stream_b,
-                                stream_w: this.stream_w
-                              }
 
-                              this.campaignService.subEncoder(this.form.value.sub1, this.sub2, this.form.value.sub3).subscribe(res => {
-                                console.log(res)
-                                this.encryptedSub = res
+
+
+                                this.campaignService.subEncoder(this.form.value.sub1, this.sub2, this.form.value.sub3).subscribe(res => {
+                                  console.log(res)
+                                  this.encryptedSub = res
+
+                                })
+
+
+
+
+
+                            let p = new Promise((resolve) =>{
+                              this.campaignService.getWhiteland()
+                                .subscribe(res =>{
+                                this.response = res
+                                  let whiteArr = []
+                                  let whiteidArr = []
+                                for(let i =0; i < this.response.length; i++){
+                                  let res = this.response[i]
+                                  if(res.group_id === 100){
+                                    let splitter = '_'
+                                    let split = res.name.split(splitter)
+
+                                    let whiteGeo = split[0]
+                                    if(whiteGeo === this.newbundle.geo){
+
+                                      whiteArr.push({
+                                        geo: split[0],
+                                        id: res.id,
+                                        name: res.name
+                                      })
+                                    }else{
+                                     let Geo = 'EN'
+                                      if(whiteGeo === Geo){
+                                        whiteArr.push({
+                                          geo: split[0],
+                                          id: res.id,
+                                          name: res.name
+                                        })
+                                      }
+                                    }
+                                  }
+                                }
+                                if(whiteArr.length !== 0){
+                                  let rand = Math.floor(Math.random() * whiteArr.length)
+                                  whiteidArr.push(whiteArr[rand].id)
+                                  console.log(whiteArr[rand])
+                                }
+                              this.white = whiteidArr.toString()
+                                  let newstream = {
+                                    black_id: this.newbundle.track_id,
+                                    white_id: this.white,
+                                    stream_b: this.stream_b,
+                                    stream_w: this.stream_w
+                                  }
+                                  resolve(newstream)
                               })
+                            })
 
-                              this.campaignService.updateStream(newstream)
-                                .subscribe(res => {
+                              p.then( data =>{
+                                this.campaignService.updateStream(data)
+                                .subscribe(() => {
+                                  console.log(data)
                                   let hotcamp = {
                                     camp_id: this.hotcampaignid,
                                     geo: this.newbundle.geo,
@@ -116,7 +168,7 @@ constructor(private  linksService: LinksServices,
                                     geo: this.newbundle.geo,
                                     offer: this.newbundle.offer,
                                     preland: this.newbundle.name,
-                                    white: ''
+                                    white: this.white
                                   }
                                   this.link = newlink
                                   this.fulldata = newlink
@@ -145,6 +197,8 @@ constructor(private  linksService: LinksServices,
                                   this.form.enable()
 
                                 })
+                              })
+
                             })
                           }
                         })

@@ -14,6 +14,10 @@ export class LinksServices{
     return this.http.get<Links[]>('/api/links')
   }
 
+  getlinks(){
+    return this.http.get('/api/links/:id')
+  }
+
   create(links: any): Observable<Links[]>{
     return this.http.post<Links[]>('/api/links', links)
   }
