@@ -4,6 +4,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {LinksServices} from "../shared/services/links.services";
 import {CampaignServices} from "../shared/services/campaign.service";
 
+
+
 @Component({
   selector: 'app-linkcreator',
   templateUrl: './linkcreator.component.html',
@@ -13,6 +15,7 @@ export class LinkcreatorComponent{
   finishres: any
   finish: boolean = false
   start: boolean = false
+  copy: boolean = false
   response: any
   fulldata: any
   stream_b: string = ''
@@ -25,7 +28,7 @@ export class LinkcreatorComponent{
   localuser: any
   domains: any
   form: any
-  sub2: string = 'Gosha'
+  sub2: string = ''
   link: any
   @Input()
   newbundle: any
@@ -40,20 +43,38 @@ constructor(private  linksService: LinksServices,
       sub1: new FormControl(null, ),
       sub3: new FormControl(null, )
     })
+    let getuser = localStorage.getItem('user')
+    if (typeof getuser === "string") {
+      this.localuser = JSON.parse(getuser)
+      this.sub2 = this.localuser.name
+    }
   }
 
   ngOnChanges() {  }
 
+
+
+  copied(){
+    this.copy = true
+  }
+
+  removeLink(data: string){
+    this.linksService.removelink(data).subscribe(()=>{
+      console.log('removed')
+      this.finish = false
+    })
+  }
+
   onSubmit(){
+    this.copy = false
+    this.finish = false
+
     this.start = true
     if(this.start) {
       setTimeout(
         () => {
           if (this.form.value.sub1 && this.form.value.sub3 && this.sub2) {
-            let getuser = localStorage.getItem('user')
-            if (typeof getuser === "string") {
-              this.localuser = JSON.parse(getuser)
-            }
+
             this.form.disable()
             this.linksService.hotlink().subscribe(links => {
               this.domains = links

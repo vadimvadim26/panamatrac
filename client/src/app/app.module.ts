@@ -37,6 +37,7 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { LinksPageComponent } from './links-page/links-page.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { DomaincreatorComponent } from './domaincreator/domaincreator.component';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { DomaincreatorComponent } from './domaincreator/domaincreator.component'
     MatTabsModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ClipboardModule
   ],
   providers: [
     {

@@ -77,9 +77,18 @@ width: 85%;
     }
     .copy{
       color: #468ae6;
+      cursor: pointer;
+    }
+    .copied_field{
+      font-size: 10px;
+      font-style: italic;
+      color: #4d70b8cf;
+      font-weight: 400;
+      position: absolute;
     }
     .del{
-      color: #e64646
+      color: #e64646;
+      cursor: pointer;
     }
   }
 }

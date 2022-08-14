@@ -30,4 +30,13 @@ export class LinksServices{
     return this.http.put<Links[]>('/api/links', links)
   }
 
+  removelink(data: string){
+    let body = {
+      full_link: data
+    }
+    // @ts-ignore
+    return this.http.patch('/api/links', body)
+  }
+
+
 }

@@ -39,7 +39,7 @@
 
   <mat-form-field appearance="outline">
     <mat-label>User name</mat-label>
-    <input matInput disabled value="Gosha" >
+    <input matInput disabled value="{{sub2}}" >
     <mat-icon class="field_icons" matSuffix>sentiment_very_satisfied</mat-icon>
 
   </mat-form-field>
@@ -64,10 +64,12 @@
       <div class="finish_link_block">
         <span class="finish_link_text">
          {{finishres}}
+
         </span>
         <div class="icon_list">
-          <mat-icon class="copy">content_copy</mat-icon>
-          <mat-icon class="del">delete</mat-icon>
+          <p class="copied_field" *ngIf="copy">copied</p>
+          <mat-icon [cdkCopyToClipboard]="finishres" (click)="copy = true" class="copy">content_copy</mat-icon>
+          <mat-icon class="del" (click)="removeLink(finishres)">delete</mat-icon>
         </div>
 
 

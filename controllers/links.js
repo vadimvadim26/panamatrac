@@ -20,6 +20,16 @@ module.exports.getById = async function(req, res){
 
 
 }
+module.exports.removelink = async function(req, res){
+           try{
+            const links = await Links.updateOne({full_link: req.body.full_link}, {status: 'free', user_id: ''})
+            res.status(200).json(links)
+        }catch (e){
+            errorHandler(res, e)
+        }
+
+
+}
 
 module.exports.create = async function(req, res){
 
