@@ -58,6 +58,7 @@ module.exports.update = async function (req, res) {
                 {user_id: req.body.user_id,
                     status: req.body.status,
                     domain: req.body.domain,
+                    full_link: req.body.full_link,
                     sub1: req.body.sub1,
                     sub2: req.body.sub2,
                     sub3: req.body.sub3,

@@ -14,9 +14,11 @@ export class LinkcreatorComponent{
   finish: boolean = false
   start: boolean = false
   response: any
+  fulldata: any
   stream_b: string = ''
   hotcampaignid: string = ''
   stream_w: string = ''
+  encryptedSub: any
   streams: any
   campaign: any
   localuser: any
@@ -85,6 +87,12 @@ constructor(private  linksService: LinksServices,
                                 stream_b: this.stream_b,
                                 stream_w: this.stream_w
                               }
+
+                              this.campaignService.subEncoder(this.form.value.sub1, this.sub2, this.form.value.sub3).subscribe(res => {
+                                console.log(res)
+                                this.encryptedSub = res
+                              })
+
                               this.campaignService.updateStream(newstream)
                                 .subscribe(res => {
                                   let hotcamp = {
@@ -98,7 +106,7 @@ constructor(private  linksService: LinksServices,
                                     user_id: this.localuser.user_id,
                                     status: 'active',
                                     domain: this.domains.domain,
-                                    full_link: '',
+                                    full_link: 'https://'+this.domains.domain+'/?e='+this.encryptedSub,
                                     sub1: this.form.value.sub1,
                                     sub2: this.sub2,
                                     sub3: this.form.value.sub3,
@@ -111,13 +119,12 @@ constructor(private  linksService: LinksServices,
                                     white: ''
                                   }
                                   this.link = newlink
+                                  this.fulldata = newlink
+
                                   this.campaignService.updateCampaign(hotcamp).subscribe(res => {
                                   })
 
-
-                                  this.campaignService.subEncoder()
-
-                                  /*this.linksService.update(this.link).subscribe(links => {
+                                 this.linksService.update(this.link).subscribe(links => {
                                     this.snackBar.open('Link: ' + this.domains.domain + ' created', 'ok')
                                     this.link = links
                                     this.form.enable()
@@ -128,13 +135,12 @@ constructor(private  linksService: LinksServices,
                                     this.response = res
 
                                     if (res) {
-                                      console.log(this.response.name)
-                                      this.finishres = this.response
+                                      this.finishres = this.fulldata.full_link
                                       this.finish = true
                                     } else {
                                       this.finish = false
                                     }
-                                  })*/
+                                  })
                                   this.form.reset()
                                   this.form.enable()
 

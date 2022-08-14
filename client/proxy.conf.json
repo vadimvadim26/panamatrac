@@ -16,5 +16,11 @@
     "secure": false,
     "loglevel": "debug",
     "changeOrigin": true
+  },
+  "/sub_encoder":{
+    "target": "http://localhost:80",
+    "secure": false,
+    "loglevel": "debug",
+    "changeOrigin": true
   }
 }
