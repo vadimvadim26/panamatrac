@@ -160,11 +160,13 @@ constructor(private  linksService: LinksServices,
                                     stream_b: this.stream_b,
                                     stream_w: this.stream_w
                                   }
+                                  this.campaignService.updateStreamW(newstream).subscribe()
                                   resolve(newstream)
                               })
                             })
 
                               p.then( data =>{
+
                                 this.campaignService.updateStream(data)
                                 .subscribe(() => {
                                   console.log(data)

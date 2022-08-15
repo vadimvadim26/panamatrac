@@ -42,15 +42,16 @@ export class CampaignServices{
 
   updateStream(newstream: any){
 
-      this.http.put<any>('/admin_api/v1/streams/'+newstream.stream_b, {
+    return this.http.put<any>('/admin_api/v1/streams/'+newstream.stream_b, {
         "landings": [{"landing_id": newstream.black_id}]
       }, httpOptions )
 
+  }
+
+  updateStreamW(newstream: any){
     return this.http.put<any>('/admin_api/v1/streams/'+newstream.stream_w, {
-        "landings": [{"landing_id": newstream.white_id}]
-      }, httpOptions )
-
-
+      "landings": [{"landing_id": newstream.white_id}]
+    }, httpOptions )
   }
 
   updateCampaign(hotcamp: any){
