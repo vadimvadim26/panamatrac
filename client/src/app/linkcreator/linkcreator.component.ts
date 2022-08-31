@@ -136,6 +136,20 @@ constructor(private  linksService: LinksServices,
                                         id: res.id,
                                         name: res.name
                                       })
+                                    }else if(
+                                      this.newbundle.geo === 'EC' ||
+                                      this.newbundle.geo === 'CR' ||
+                                      this.newbundle.geo === 'MX' ||
+                                      this.newbundle.geo === 'PT'
+                                    ){
+                                      let Geo = 'ES'
+                                      if(whiteGeo === Geo){
+                                        whiteArr.push({
+                                          geo: split[0],
+                                          id: res.id,
+                                          name: res.name
+                                        })
+                                      }
                                     }else{
                                      let Geo = 'EN'
                                       if(whiteGeo === Geo){

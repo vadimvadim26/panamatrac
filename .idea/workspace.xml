@@ -12,8 +12,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ed0bb601-9039-419c-8a66-84207e17401a" name="Default Changelist" comment="big build">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/linkcreator/linkcreator.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/linkcreator/linkcreator.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/services/campaign.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/services/campaign.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/links-page/links-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/links-page/links-page.component.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +64,7 @@
     "last_opened_file_path": "C:/wamp64/www/panamatrac",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
-    "ts.external.directory.path": "C:\\wamp64\\www\\panamatrac\\client\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\wamp64\\www\\panamatrack\\client\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -134,6 +137,7 @@
       <workItem from="1660469563820" duration="36570000" />
       <workItem from="1660556360391" duration="111000" />
       <workItem from="1660586750080" duration="1193000" />
+      <workItem from="1661972022240" duration="681000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1658323024375</created>
