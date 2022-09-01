@@ -38,7 +38,8 @@ import { LinksPageComponent } from './links-page/links-page.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { DomaincreatorComponent } from './domaincreator/domaincreator.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from "@angular/material/radio";
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,7 +80,9 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
-    ClipboardModule
+    ClipboardModule,
+    MatCheckboxModule,
+    MatRadioModule
   ],
   providers: [
     {

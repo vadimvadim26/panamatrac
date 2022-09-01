@@ -17,10 +17,13 @@
         </mat-chip>
       </mat-chip-list>
     </mat-card-title>
-    <mat-card-subtitle>{{newbundle.offer}}  {{newbundle.geo}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="newbundle.offer">{{newbundle.offer}}  {{newbundle.geo}}</mat-card-subtitle>
+
   </mat-card-header>
 
   <mat-card-content>
+
+
 
   	<div class="form_content_box">
 
@@ -28,6 +31,22 @@
             [formGroup]="form"
             (ngSubmit)="onSubmit()"
       >
+
+        <section class="example-section example-white-sec">
+          <label class="example-margin example-margin-label">White:</label>
+          <mat-radio-group *ngIf="newbundle.geo" class="mat-radio-list mat-radio-list-white">
+            <mat-radio-button class="example-margin" (click)="getwhitepage(newbundle.geo)" value="Old">Mobirise</mat-radio-button>
+            <mat-radio-button disabled="true" (click)="getnewwhitepage(newbundle.geo)"  class="example-margin" value="New">New</mat-radio-button>
+          </mat-radio-group>
+        </section>
+
+        <section class="example-section">
+          <label class="example-margin example-margin-label">Domain:</label>
+          <mat-radio-group *ngIf="newbundle.geo" class="mat-radio-list">
+            <mat-radio-button checked="true" class="example-margin" value="Old">Old</mat-radio-button>
+            <mat-radio-button disabled class="example-margin" value="New">New</mat-radio-button>
+          </mat-radio-group>
+        </section>
 
   <mat-form-field appearance="outline">
     <mat-label>Facebook pixel</mat-label>
@@ -57,7 +76,39 @@
 	</div>
 </form>
 
+      <mat-chip-list *ngIf="whitelistbool"  class="white-chip-list">
+        <mat-chip
+          *ngFor="let whiteitem of whitepack"
+          (click)="getWhite(whiteitem)"
+          class="white-list-item"
+        >
+          {{whiteitem.constructor+' '+whiteitem.topic+' '+whiteitem.number}}
+          <a target="_blank" href="{{whiteitem.white_url}}"><mat-icon style="width: 14px;" class="href_icon m-link_color">open_in_new</mat-icon></a>
+          <button style="margin-left:0 "disabled
+                  *ngIf="getwhitebool &&
+                          getonewhite.constructor === whiteitem.constructor &&
+                          getonewhite.topic === whiteitem.topic &&
+                          getonewhite.number === whiteitem.number
+                        "
+
+                  matChipRemove>
+            <mat-icon
+              style="color: #717279;
+              width: 19px;
+              height: 19px;
+              font-size: 12px;"
+            >
+              pan_tool
+            </mat-icon>
+          </button>
+        </mat-chip>
+      </mat-chip-list>
+
 </div>
+
+
+
+
   </mat-card-content>
   <mat-list *ngIf="finish">
     <mat-list-item>

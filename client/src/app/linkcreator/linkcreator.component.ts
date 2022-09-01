@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {LinksServices} from "../shared/services/links.services";
 import {CampaignServices} from "../shared/services/campaign.service";
-
+import {WhiteServices} from "../shared/services/white.services";
 
 
 @Component({
@@ -12,6 +12,10 @@ import {CampaignServices} from "../shared/services/campaign.service";
   styleUrls: ['./linkcreator.component.scss']
 })
 export class LinkcreatorComponent{
+  manualwhite: boolean = false
+  whitelistbool: boolean = false
+  getwhitebool: boolean = false
+  getonewhite: any
   finishres: any
   finish: boolean = false
   start: boolean = false
@@ -30,11 +34,12 @@ export class LinkcreatorComponent{
   form: any
   sub2: string = ''
   link: any
+  whitepack: any
   @Input()
   newbundle: any
-  offerimg: string = ''
 constructor(private  linksService: LinksServices,
             private campaignService: CampaignServices,
+            private whiteService: WhiteServices,
             private snackBar: MatSnackBar
 ) {}
 
@@ -48,9 +53,15 @@ constructor(private  linksService: LinksServices,
       this.localuser = JSON.parse(getuser)
       this.sub2 = this.localuser.name
     }
+
+    this.whitepack = []
+
+
+
   }
 
   ngOnChanges() {  }
+
 
 
 
@@ -60,10 +71,97 @@ constructor(private  linksService: LinksServices,
 
   removeLink(data: string){
     this.linksService.removelink(data).subscribe(()=>{
-      console.log('removed')
+     /* console.log('removed')*/
       this.finish = false
     })
   }
+
+  getWhite(white: any){
+    console.log(white)
+    this.manualwhite = true
+    this.getwhitebool = true
+    this.getonewhite = white
+  }
+
+  getwhitepage(geo: string){
+    this.manualwhite = false
+    this.getwhitebool = false
+    this.whitepack = []
+    this.whitelistbool = false
+    this.whiteService.getWhiteLand(geo).subscribe( data=>{
+
+      if( geo === 'EC' ||
+          geo === 'CR' ||
+          geo === 'MX' ||
+          geo === 'PT'){
+        geo = 'ES'
+      }
+      for(let i = 0; i<data.length; i++){
+        let res = data[i]
+        if(res.group_id === 100){
+          /*console.log(res.name)*/
+          let split = '_'
+          let geos = res.name.split(split)
+          if(geos[0] === geo){
+            this.whitepack.push(
+              {
+                geo: geos[0],
+                constructor: geos[1],
+                topic: geos[2],
+                number: geos[3],
+                track_id: res.id,
+                white_url: 'http://178.62.251.36'+res.local_path
+              })
+
+          }
+        }
+      }
+      console.log(this.whitepack)
+      this.whitelistbool = true
+    })
+
+  }
+
+  getnewwhitepage(geo: string){
+    this.manualwhite = false
+    this.getwhitebool = false
+    this.whitepack = []
+    this.whitelistbool = false
+    this.whiteService.getWhiteLand(geo).subscribe( data=>{
+
+      if( geo === 'EC' ||
+        geo === 'CR' ||
+        geo === 'MX' ||
+        geo === 'PT'){
+        geo = 'ES'
+      }
+      for(let i = 0; i<data.length; i++){
+        let res = data[i]
+        if(res.group_id === 100){
+          /*console.log(res.name)*/
+          let split = '_'
+          let geos = res.name.split(split)
+          if(geos[0] === geo && geos[4] === 'new'){
+            this.whitepack.push(
+              {
+                geo: geos[0],
+                constructor: geos[1],
+                topic: geos[2],
+                number: geos[3],
+                track_id: res.id,
+                white_url: 'http://178.62.251.36'+res.local_path
+              })
+
+          }
+        }
+      }
+      console.log(this.whitepack)
+      this.whitelistbool = true
+    })
+  }
+
+
+
 
   onSubmit(){
     this.copy = false
@@ -115,13 +213,13 @@ constructor(private  linksService: LinksServices,
 
 
 
-
-                            let p = new Promise((resolve) =>{
-                              this.campaignService.getWhiteland()
-                                .subscribe(res =>{
+                        if(this.manualwhite === false){
+                          let p = new Promise((resolve) =>{
+                            this.campaignService.getWhiteland()
+                              .subscribe(res =>{
                                 this.response = res
-                                  let whiteArr = []
-                                  let whiteidArr = []
+                                let whiteArr = []
+                                let whiteidArr = []
                                 for(let i =0; i < this.response.length; i++){
                                   let res = this.response[i]
                                   if(res.group_id === 100){
@@ -151,7 +249,7 @@ constructor(private  linksService: LinksServices,
                                         })
                                       }
                                     }else{
-                                     let Geo = 'EN'
+                                      let Geo = 'EN'
                                       if(whiteGeo === Geo){
                                         whiteArr.push({
                                           geo: split[0],
@@ -167,74 +265,149 @@ constructor(private  linksService: LinksServices,
                                   whiteidArr.push(whiteArr[rand].id)
                                   console.log(whiteArr[rand])
                                 }
-                              this.white = whiteidArr.toString()
-                                  let newstream = {
-                                    black_id: this.newbundle.track_id,
-                                    white_id: this.white,
-                                    stream_b: this.stream_b,
-                                    stream_w: this.stream_w
-                                  }
-                                  this.campaignService.updateStreamW(newstream).subscribe()
-                                  resolve(newstream)
+                                this.white = whiteidArr.toString()
+                                let newstream = {
+                                  black_id: this.newbundle.track_id,
+                                  white_id: this.white,
+                                  stream_b: this.stream_b,
+                                  stream_w: this.stream_w
+                                }
+                                this.campaignService.updateStreamW(newstream).subscribe()
+                                resolve(newstream)
                               })
-                            })
+                          })
+                          p.then( data =>{
 
-                              p.then( data =>{
+                            this.campaignService.updateStream(data)
+                              .subscribe(() => {
+                                console.log(data)
+                                let hotcamp = {
+                                  camp_id: this.hotcampaignid,
+                                  geo: this.newbundle.geo,
+                                  offer: this.newbundle.offer,
+                                  preland: this.newbundle.name,
+                                  group_id: 96
+                                }
+                                let newlink = {
+                                  user_id: this.localuser.user_id,
+                                  status: 'active',
+                                  domain: this.domains.domain,
+                                  full_link: 'https://'+this.domains.domain+'/?e='+this.encryptedSub,
+                                  sub1: this.form.value.sub1,
+                                  sub2: this.sub2,
+                                  sub3: this.form.value.sub3,
+                                  campaign_id: this.hotcampaignid,
+                                  stream_b_id: this.stream_b,
+                                  stream_w_id: this.stream_w,
+                                  geo: this.newbundle.geo,
+                                  offer: this.newbundle.offer,
+                                  preland: this.newbundle.name,
+                                  white: this.white
+                                }
+                                this.link = newlink
+                                this.fulldata = newlink
 
-                                this.campaignService.updateStream(data)
-                                .subscribe(() => {
-                                  console.log(data)
-                                  let hotcamp = {
-                                    camp_id: this.hotcampaignid,
-                                    geo: this.newbundle.geo,
-                                    offer: this.newbundle.offer,
-                                    preland: this.newbundle.name,
-                                    group_id: 96
-                                  }
-                                  let newlink = {
-                                    user_id: this.localuser.user_id,
-                                    status: 'active',
-                                    domain: this.domains.domain,
-                                    full_link: 'https://'+this.domains.domain+'/?e='+this.encryptedSub,
-                                    sub1: this.form.value.sub1,
-                                    sub2: this.sub2,
-                                    sub3: this.form.value.sub3,
-                                    campaign_id: this.hotcampaignid,
-                                    stream_b_id: this.stream_b,
-                                    stream_w_id: this.stream_w,
-                                    geo: this.newbundle.geo,
-                                    offer: this.newbundle.offer,
-                                    preland: this.newbundle.name,
-                                    white: this.white
-                                  }
-                                  this.link = newlink
-                                  this.fulldata = newlink
-
-                                  this.campaignService.updateCampaign(hotcamp).subscribe(res => {
-                                  })
-
-                                 this.linksService.update(this.link).subscribe(links => {
-                                    this.snackBar.open('Link: ' + this.domains.domain + ' created', 'ok')
-                                    this.link = links
-                                    this.form.enable()
-                                    this.start = false
-                                  })
-
-                                  this.campaignService.updateDomain(this.domains.domain_id, newlink.campaign_id).subscribe(res => {
-                                    this.response = res
-
-                                    if (res) {
-                                      this.finishres = this.fulldata.full_link
-                                      this.finish = true
-                                    } else {
-                                      this.finish = false
-                                    }
-                                  })
-                                  this.form.reset()
-                                  this.form.enable()
-
+                                this.campaignService.updateCampaign(hotcamp).subscribe(res => {
                                 })
+
+                                this.linksService.update(this.link).subscribe(links => {
+                                  this.snackBar.open('Link: ' + this.domains.domain + ' created', 'ok')
+                                  this.link = links
+                                  this.form.enable()
+                                  this.start = false
+                                })
+
+                                this.campaignService.updateDomain(this.domains.domain_id, newlink.campaign_id).subscribe(res => {
+                                  this.response = res
+
+                                  if (res) {
+                                    this.finishres = this.fulldata.full_link
+                                    this.finish = true
+                                  } else {
+                                    this.finish = false
+                                  }
+                                })
+                                this.form.reset()
+                                this.form.enable()
+
                               })
+                          })
+                        }else if(this.manualwhite === true){
+                          let p = new Promise((resolve) =>{
+                                let newstream = {
+                                  black_id: this.newbundle.track_id,
+                                  white_id: this.getonewhite.track_id,
+                                  stream_b: this.stream_b,
+                                  stream_w: this.stream_w
+                                }
+                                this.campaignService.updateStreamW(newstream).subscribe()
+                            this.manualwhite = false
+                            this.getwhitebool = false
+                                resolve(newstream)
+
+                          })
+                          p.then( data =>{
+
+                            this.campaignService.updateStream(data)
+                              .subscribe(() => {
+                                console.log(data)
+                                let hotcamp = {
+                                  camp_id: this.hotcampaignid,
+                                  geo: this.newbundle.geo,
+                                  offer: this.newbundle.offer,
+                                  preland: this.newbundle.name,
+                                  group_id: 96
+                                }
+                                let newlink = {
+                                  user_id: this.localuser.user_id,
+                                  status: 'active',
+                                  domain: this.domains.domain,
+                                  full_link: 'https://'+this.domains.domain+'/?e='+this.encryptedSub,
+                                  sub1: this.form.value.sub1,
+                                  sub2: this.sub2,
+                                  sub3: this.form.value.sub3,
+                                  campaign_id: this.hotcampaignid,
+                                  stream_b_id: this.stream_b,
+                                  stream_w_id: this.stream_w,
+                                  geo: this.newbundle.geo,
+                                  offer: this.newbundle.offer,
+                                  preland: this.newbundle.name,
+                                  white: this.white
+                                }
+                                this.link = newlink
+                                this.fulldata = newlink
+
+                                this.campaignService.updateCampaign(hotcamp).subscribe(res => {
+                                })
+
+                                this.linksService.update(this.link).subscribe(links => {
+                                  this.snackBar.open('Link: ' + this.domains.domain + ' created', 'ok')
+                                  this.link = links
+                                  this.form.enable()
+                                  this.start = false
+                                })
+
+                                this.campaignService.updateDomain(this.domains.domain_id, newlink.campaign_id).subscribe(res => {
+                                  this.response = res
+
+                                  if (res) {
+                                    this.finishres = this.fulldata.full_link
+                                    this.finish = true
+                                  } else {
+                                    this.finish = false
+                                  }
+                                })
+                                this.form.reset()
+                                this.form.enable()
+
+                              })
+                          })
+                        }
+
+
+
+
+
 
                             })
                           }

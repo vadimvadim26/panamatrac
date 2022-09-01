@@ -74,7 +74,10 @@
           *ngIf="preland.geo === geosofoffer.geo
           && preland.offer === geosofoffer.offer
           && preland.active === true"
-          (click)="newBundle(preland, offer.imageSrc)"
+          (click)="
+          newBundle(preland, offer.imageSrc);
+          whitePack(preland.geo)
+        "
         >
 
           <img matChipAvatar

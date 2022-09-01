@@ -21,6 +21,7 @@ export class DashboardPageComponent implements OnInit {
   @ViewChild(LinkcreatorComponent)
   linlcreator:  LinkcreatorComponent | undefined
   newbundle: any
+
   openedgeo: any
   aboutoffer: any
   openedpreland: any
@@ -87,6 +88,7 @@ export class DashboardPageComponent implements OnInit {
       preland_preview: '',
       preland_url: ''
     }
+
 
 
     let userstring = localStorage.getItem('user')
@@ -194,6 +196,10 @@ export class DashboardPageComponent implements OnInit {
     }
   }
 
+  whitePack(geo: string) {
+    this.newbundle.geo = geo
+  }
+
   offerActivator(offer: string){
     let active = '1'
     this.offersService.update(offer, active).subscribe(offers =>{
@@ -280,7 +286,7 @@ export class DashboardPageComponent implements OnInit {
   }
 
   aboutPreland(track_id: string, avatar: string){
-    console.log(track_id)
+   /* console.log(track_id)*/
     this.http.get('/admin_api/v1/landing_pages/'+track_id, {
       headers: new HttpHeaders({
         'Api-Key': '2037cd82a8121f897a835f93965a7ae7'
