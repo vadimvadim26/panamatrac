@@ -177,6 +177,7 @@ export class DashboardPageComponent implements OnInit {
         name: preland.name
       }
       this.newbundle = {
+        opened: false,
         track_id: preland.track_id,
         geo: preland.geo,
         name: preland.name,

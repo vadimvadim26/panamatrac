@@ -76,7 +76,7 @@
 	</div>
 </form>
 
-      <mat-chip-list *ngIf="whitelistbool"  class="white-chip-list">
+      <mat-chip-list *ngIf="whitelistbool && newbundle.opened"  class="white-chip-list">
         <mat-chip
           *ngFor="let whiteitem of whitepack"
           (click)="getWhite(whiteitem)"

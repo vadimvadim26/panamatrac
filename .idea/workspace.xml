@@ -10,16 +10,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed0bb601-9039-419c-8a66-84207e17401a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/app/shared/services/white.services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/linkcreator/linkcreator.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/linkcreator/linkcreator.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/linkcreator/linkcreator.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/linkcreator/linkcreator.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/linkcreator/linkcreator.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/linkcreator/linkcreator.component.ts" afterDir="false" />
-    </list>
+    <list default="true" id="ed0bb601-9039-419c-8a66-84207e17401a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +132,7 @@
       <workItem from="1660586750080" duration="1193000" />
       <workItem from="1661972022240" duration="1330000" />
       <workItem from="1662021717800" duration="8020000" />
-      <workItem from="1662041661546" duration="14560000" />
+      <workItem from="1662041661546" duration="15210000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1658323024375</created>
@@ -262,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661972761392</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Big Update Add whitePage Selector and Domain">
+      <created>1662059252908</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1662059252908</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +295,8 @@
     <MESSAGE value="rights sett" />
     <MESSAGE value="big build" />
     <MESSAGE value="ES Geo FIX" />
-    <option name="LAST_COMMIT_MESSAGE" value="ES Geo FIX" />
+    <MESSAGE value="Big Update Add whitePage Selector and Domain" />
+    <option name="LAST_COMMIT_MESSAGE" value="Big Update Add whitePage Selector and Domain" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

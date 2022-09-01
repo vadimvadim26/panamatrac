@@ -84,6 +84,7 @@ constructor(private  linksService: LinksServices,
   }
 
   getwhitepage(geo: string){
+    this.newbundle.opened = true
     this.manualwhite = false
     this.getwhitebool = false
     this.whitepack = []
@@ -123,6 +124,7 @@ constructor(private  linksService: LinksServices,
   }
 
   getnewwhitepage(geo: string){
+    this.newbundle.opened = true
     this.manualwhite = false
     this.getwhitebool = false
     this.whitepack = []
