@@ -10,7 +10,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed0bb601-9039-419c-8a66-84207e17401a" name="Default Changelist" comment="" />
+    <list default="true" id="ed0bb601-9039-419c-8a66-84207e17401a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,20 +49,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "javascript.nodejs.core.library.configured.version": "18.6.0",
-    "javascript.nodejs.core.library.typings.version": "18.6.0",
-    "last_opened_file_path": "C:/wamp64/www/panamatrack/client/src/app/shared/services",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
-    "ts.external.directory.path": "C:\\wamp64\\www\\panamatrack\\client\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.6.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.6.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/panamatrack/client/src/app/shared/services&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\wamp64\\www\\panamatrack\\client\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\panamatrack\client\src\app\shared\services" />
@@ -132,7 +134,8 @@
       <workItem from="1660586750080" duration="1193000" />
       <workItem from="1661972022240" duration="1330000" />
       <workItem from="1662021717800" duration="8020000" />
-      <workItem from="1662041661546" duration="15210000" />
+      <workItem from="1662041661546" duration="15763000" />
+      <workItem from="1662111576198" duration="19000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1658323024375</created>
@@ -260,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662059252908</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="micro fix selector">
+      <created>1662060151247</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1662060151247</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +306,8 @@
     <MESSAGE value="big build" />
     <MESSAGE value="ES Geo FIX" />
     <MESSAGE value="Big Update Add whitePage Selector and Domain" />
-    <option name="LAST_COMMIT_MESSAGE" value="Big Update Add whitePage Selector and Domain" />
+    <MESSAGE value="micro fix selector" />
+    <option name="LAST_COMMIT_MESSAGE" value="micro fix selector" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
