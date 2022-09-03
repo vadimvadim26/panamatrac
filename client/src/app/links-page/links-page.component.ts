@@ -19,7 +19,7 @@ export class LinksPageComponent {
     }
     this.linksService.getlinks().subscribe(res =>{
       this.links = res
-console.log(res)
+      console.log(res)
     })
   }
 

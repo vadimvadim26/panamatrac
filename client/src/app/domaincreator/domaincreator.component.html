@@ -16,10 +16,19 @@
           <textarea matInput placeholder="Placeholder"
                     formControlName="domains"></textarea>
 
+
         </mat-form-field>
       </p>
+      <section class="example-section">
 
+        <mat-radio-group>
+          <mat-radio-button  class="example-margin" (click)="setStatusOldfD()" value="Old">Old links</mat-radio-button>
+          <mat-radio-button class="example-margin" (click)="setStatusNewfD()" value="New">New links</mat-radio-button>
+        </mat-radio-group>
+      </section>
     </mat-card-content>
+
+
 
     <mat-card-actions>
       <button type="submit" color="primary" mat-button>Loading domain</button>

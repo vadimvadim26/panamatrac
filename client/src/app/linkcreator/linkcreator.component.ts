@@ -12,6 +12,7 @@ import {WhiteServices} from "../shared/services/white.services";
   styleUrls: ['./linkcreator.component.scss']
 })
 export class LinkcreatorComponent{
+  domain_status: string = ''
   manualwhite: boolean = false
   whitelistbool: boolean = false
   getwhitebool: boolean = false
@@ -162,6 +163,13 @@ constructor(private  linksService: LinksServices,
     })
   }
 
+  setOldDomain(){
+    this.domain_status = ''
+  }
+
+  setNewDomain(){
+    this.domain_status = '/:new'
+  }
 
 
 
@@ -176,7 +184,7 @@ constructor(private  linksService: LinksServices,
           if (this.form.value.sub1 && this.form.value.sub3 && this.sub2) {
 
             this.form.disable()
-            this.linksService.hotlink().subscribe(links => {
+            this.linksService.hotlink(this.domain_status).subscribe(links => {
               this.domains = links
               let domain = this.domains.domain
               let activedom = {

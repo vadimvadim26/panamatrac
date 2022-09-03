@@ -12,10 +12,12 @@ import {CampaignServices} from "../shared/services/campaign.service";
 })
 export class DomaincreatorComponent implements OnInit {
   getdomtrack: boolean = false
+  newdomain: boolean = false
   domains: any
   alldomains: any
   links: any
   form: any
+  domainstatus: string = ''
   constructor(private  campaignService: CampaignServices,
               private  linksService: LinksServices,
               private snackBar: MatSnackBar) { }
@@ -32,7 +34,13 @@ export class DomaincreatorComponent implements OnInit {
   onSubmit(){
     this.form.disable()
     if(this.form.value.domains) {
-      let domains: { domain: any; domain_id: any; }[] = []
+      if(this.newdomain === true){
+        this.domainstatus = 'new'
+      }else{
+        this.domainstatus = 'free'
+      }
+      console.log(this.domainstatus)
+      let domains: { domain: any; domain_id: any; status: string;}[] = []
       let splitter = ' '
       let value = this.form.value.domains.split(splitter)
       this.campaignService.getDomainid().subscribe(alldomains => {
@@ -42,9 +50,12 @@ export class DomaincreatorComponent implements OnInit {
             for (let b = 0; b < this.alldomains.length; b++) {
               let domain = this.alldomains[b]
               if (domain.name === value[d]) {
+
                 domains.push({
+                  status: this.domainstatus,
                   domain: domain.name.toString(),
                   domain_id: domain.id.toString()
+
                 })
               }
             }
@@ -67,5 +78,15 @@ export class DomaincreatorComponent implements OnInit {
       })
 
   }
+
+  setStatusNewfD(){
+   this.newdomain = true
+  }
+
+  setStatusOldfD(){
+    this.newdomain = false
+  }
+
+
 
 }

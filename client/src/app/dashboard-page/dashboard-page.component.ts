@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {OffersServices} from "../shared/services/offers.services";
+import {LinksServices} from "../shared/services/links.services";
 import {PrelandingsServices} from "../shared/services/prelandings.services";
 import {GeosofoffersServices} from "../shared/services/geosofoffers.services";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
@@ -21,7 +22,8 @@ export class DashboardPageComponent implements OnInit {
   @ViewChild(LinkcreatorComponent)
   linlcreator:  LinkcreatorComponent | undefined
   newbundle: any
-
+  linkscount: any
+  statuslink: string = 'free'
   openedgeo: any
   aboutoffer: any
   openedpreland: any
@@ -49,6 +51,7 @@ export class DashboardPageComponent implements OnInit {
               private  offersService: OffersServices,
               private prelandingsService: PrelandingsServices,
               private geosofoffersService: GeosofoffersServices,
+              private  linksService: LinksServices,
               private snackBar: MatSnackBar,
               private http: HttpClient
               ){}
@@ -86,9 +89,15 @@ export class DashboardPageComponent implements OnInit {
       offer_img: '/uploads/notimage.png',
       preland_img: '',
       preland_preview: '',
-      preland_url: ''
+      preland_url: '',
+      status_link: this.statuslink,
+      all_links_count: this.linkscount
     }
 
+    this.linkscount = {
+      free: [],
+      new: []
+    }
 
 
     let userstring = localStorage.getItem('user')
@@ -185,7 +194,9 @@ export class DashboardPageComponent implements OnInit {
         offer_img: offerimgsrc,
         preland_img: preland.avatar,
         preland_preview: preland.preview_img,
-        preland_url: preland.preland_link
+        preland_url: preland.preland_link,
+        status_link: this.statuslink,
+        all_links_count: this.linkscount
       }
     }else{
       this.openedpreland = {
@@ -199,6 +210,25 @@ export class DashboardPageComponent implements OnInit {
 
   whitePack(geo: string) {
     this.newbundle.geo = geo
+  }
+
+  getLinks(){
+    this.linkscount.free = []
+    this.linkscount.new = []
+    this.linksService.allLinks().subscribe(res => {
+
+      for(let i =0; i<res.length; i++){
+        let linkres = res[i]
+        if(linkres.status === 'free'){
+          this.linkscount.free.push(linkres)
+        }else if(linkres.status === 'new'){
+          this.linkscount.new.push(linkres)
+        }
+
+      }
+      console.log(this.linkscount)
+
+    })
   }
 
   offerActivator(offer: string){

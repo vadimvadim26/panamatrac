@@ -43,8 +43,8 @@
         <section class="example-section">
           <label class="example-margin example-margin-label">Domain:</label>
           <mat-radio-group *ngIf="newbundle.geo" class="mat-radio-list">
-            <mat-radio-button checked="true" class="example-margin" value="Old">Old</mat-radio-button>
-            <mat-radio-button disabled class="example-margin" value="New">New</mat-radio-button>
+            <mat-radio-button checked="true" class="example-margin" (click)="setOldDomain()" value="Old">Old <span style="font-size: 12px"> {{newbundle.all_links_count.free.length}}</span></mat-radio-button>
+            <mat-radio-button  class="example-margin" (click)="setNewDomain()" value="New">New <span style="font-size: 12px"> {{newbundle.all_links_count.new.length}}</span></mat-radio-button>
           </mat-radio-group>
         </section>
 

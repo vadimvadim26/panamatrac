@@ -1,13 +1,32 @@
 const Links = require('../models/Links')
 const errorHandler = require('../utils/errorHandler')
 
-module.exports.hotlink = async function(req, res){
+module.exports.freelink = async function(req, res){
         try{
             const links = await Links.findOne({status: 'free'})
             res.status(200).json(links)
         }catch (e){
             errorHandler(res, e)
         }
+}
+
+module.exports.newlink = async function(req, res){
+    try{
+        const links = await Links.findOne({status: 'new'})
+        res.status(200).json(links)
+    }catch (e){
+        errorHandler(res, e)
+    }
+}
+
+
+module.exports.allLinks = async function(req, res){
+    try{
+        const links = await Links.find()
+        res.status(200).json(links)
+    }catch (e){
+        errorHandler(res, e)
+    }
 }
 
 module.exports.getById = async function(req, res){
@@ -44,7 +63,7 @@ module.exports.create = async function(req, res){
             if(findomain){
                 //dublicate
             }else if(!findomain) {
-                domarray.push({domain: dom.domain,domain_id: dom.domain_id})
+                domarray.push({status: dom.status, domain: dom.domain,domain_id: dom.domain_id})
             }
         }
        let links = await Links.insertMany(domarray)

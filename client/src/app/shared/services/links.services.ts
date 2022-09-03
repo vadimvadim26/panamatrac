@@ -10,7 +10,11 @@ export class LinksServices{
   constructor(private http: HttpClient) {
   }
 
-  hotlink(): Observable<Links[]>{
+  hotlink(status: string){
+    return this.http.get('/api/domains'+status)
+  }
+
+  allLinks(): Observable<Links[]>{
     return this.http.get<Links[]>('/api/links')
   }
 
@@ -19,6 +23,7 @@ export class LinksServices{
   }
 
   create(links: any): Observable<Links[]>{
+
     return this.http.post<Links[]>('/api/links', links)
   }
 
