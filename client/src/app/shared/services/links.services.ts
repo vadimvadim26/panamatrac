@@ -14,12 +14,17 @@ export class LinksServices{
     return this.http.get('/api/domains'+status)
   }
 
+  updateDomain(newlink: any): Observable<Links[]>{
+    return this.http.put<Links[]>('/api/domains',newlink)
+
+  }
+
   allLinks(): Observable<Links[]>{
     return this.http.get<Links[]>('/api/links')
   }
 
-  getlinks(){
-    return this.http.get('/api/links/:id')
+  getlinks(status: string){
+    return this.http.get('/api/links/:status='+status)
   }
 
   create(links: any): Observable<Links[]>{

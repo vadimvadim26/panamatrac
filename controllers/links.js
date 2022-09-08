@@ -30,8 +30,11 @@ module.exports.allLinks = async function(req, res){
 }
 
 module.exports.getById = async function(req, res){
+        let split = '='
+        let paramarr = req.params.status.split(split)
+
            try{
-            const links = await Links.find({user_id: req.user._id,status: 'active'})
+            const links = await Links.find({user_id: req.user._id,status: paramarr[1]})
             res.status(200).json(links)
         }catch (e){
             errorHandler(res, e)
@@ -39,6 +42,7 @@ module.exports.getById = async function(req, res){
 
 
 }
+
 module.exports.removelink = async function(req, res){
            try{
             const links = await Links.updateOne({full_link: req.body.full_link}, {status: 'free', user_id: ''})
@@ -46,6 +50,34 @@ module.exports.removelink = async function(req, res){
         }catch (e){
             errorHandler(res, e)
         }
+
+
+}
+
+module.exports.updateDomain = async function(req, res){
+   console.log(req.body)
+    if (req.body.linkStatus === 'removed'){
+        try{
+            const links = await Links.updateOne({_id: req.body.linkId}, {status: 'removed'})
+            res.status(200).json(links)
+        }catch (e){
+            errorHandler(res, e)
+        }
+    }else if(req.body.linkStatus === 'banned'){
+        try{
+            const links = await Links.updateOne({_id: req.body.linkId}, {status: 'banned'})
+            res.status(200).json(links)
+        }catch (e){
+            errorHandler(res, e)
+        }
+    }else if(req.body.linkStatus === 'free'){
+        try{
+            const links = await Links.updateOne({_id: req.body.linkId}, {status: 'free'})
+            res.status(200).json(links)
+        }catch (e){
+            errorHandler(res, e)
+        }
+    }
 
 
 }

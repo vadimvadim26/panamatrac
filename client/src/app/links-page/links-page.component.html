@@ -1,14 +1,26 @@
 <div class="links-container">
-  <form class="search-form">
-    <mat-form-field appearance="legacy">
-      <mat-label>Search</mat-label>
-      <input type="text" matInput placeholder="https://example.com/?e=AbcDefGh123abc">
-      <button mat-icon-button matSuffix >
-        <mat-icon matSuffix>search</mat-icon>
-      </button>
+<div class="customchiplist">
+  <mat-chip (click)="selectLinkList('active')" class="linksStatus activel">
+    active
+    <button *ngIf="linkstatus === 'active'" matChipRemove>
+      <mat-icon>visibility</mat-icon>
+    </button>
+  </mat-chip>
+  <mat-chip (click)="selectLinkList('removed')" color="primary" class="linksStatus removel">
+    removed
+    <button *ngIf="linkstatus === 'removed'" matChipRemove>
+      <mat-icon>visibility</mat-icon>
+    </button>
+  </mat-chip>
+  <mat-chip (click)="selectLinkList('banned')" color="accent" class="linksStatus bannedl">
+    banned
+    <button *ngIf="linkstatus === 'banned'" matChipRemove>
+      <mat-icon>visibility</mat-icon>
+    </button>
+  </mat-chip>
+</div>
 
-    </mat-form-field>
-  </form>
+
 
   <mat-accordion class="example-headers-align">
 
@@ -25,8 +37,19 @@
       </mat-expansion-panel-header>
 
       <mat-action-row>
-        <button mat-button color="warn" >Remove</button>
-        <button mat-button color="primary" >Banned</button>
+        <button *ngIf="linkstatus === 'banned' || linkstatus === 'removed'" mat-button color="accent" [matMenuTriggerFor]="menufree"  #menuTrigger >Free</button>
+        <mat-menu #menufree>
+          <button mat-menu-item (click)="updateLink(link._id, 'free')">Free</button>
+        </mat-menu>
+
+        <button *ngIf="linkstatus === 'active'" mat-button color="warn" [matMenuTriggerFor]="menuremove"  #menuTrigger >Remove</button>
+        <mat-menu #menuremove>
+          <button mat-menu-item (click)="updateLink(link._id, 'removed')">Remove</button>
+        </mat-menu>
+        <button *ngIf="linkstatus === 'active' || linkstatus === 'removed'" mat-button color="primary" [matMenuTriggerFor]="menuban"  #menuTrigger >Banned</button>
+        <mat-menu #menuban>
+          <button mat-menu-item (click)="updateLink(link._id, 'banned')">Banned</button>
+        </mat-menu>
       </mat-action-row>
     </mat-expansion-panel>
 

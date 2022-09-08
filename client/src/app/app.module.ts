@@ -40,6 +40,7 @@ import { DomaincreatorComponent } from './domaincreator/domaincreator.component'
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from "@angular/material/radio";
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,7 +83,8 @@ import {MatRadioModule} from "@angular/material/radio";
     MatExpansionModule,
     ClipboardModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDialogModule
   ],
   providers: [
     {

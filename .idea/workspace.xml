@@ -11,19 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed0bb601-9039-419c-8a66-84207e17401a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/domains.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/domains.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sub_encoder/FilterFbBanLink.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/domaincreator/domaincreator.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/domaincreator/domaincreator.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/domaincreator/domaincreator.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/domaincreator/domaincreator.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/linkcreator/linkcreator.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/linkcreator/linkcreator.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/linkcreator/linkcreator.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/linkcreator/linkcreator.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/links-page/links-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/links-page/links-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/links-page/links-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/links-page/links-page.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/links-page/links-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/links-page/links-page.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/shared/services/links.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/services/links.services.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/toolbar/toolbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/toolbar/toolbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/toolbar/toolbar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/toolbar/toolbar.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/user-page/user-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/user-page/user-page.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/links.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/links.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/domains.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/domains.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/links.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/links.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +68,7 @@
     "WebServerToolWindowFactoryState": "false",
     "javascript.nodejs.core.library.configured.version": "18.6.0",
     "javascript.nodejs.core.library.typings.version": "18.6.0",
-    "last_opened_file_path": "C:/wamp64/www/panamatrack/models",
+    "last_opened_file_path": "C:/wamp64/www/panamatrack",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
     "ts.external.directory.path": "C:\\wamp64\\www\\panamatrack\\client\\node_modules\\typescript\\lib",
@@ -150,7 +149,11 @@
       <workItem from="1662041661546" duration="15763000" />
       <workItem from="1662111576198" duration="707000" />
       <workItem from="1662142720748" duration="5127000" />
-      <workItem from="1662193024720" duration="5276000" />
+      <workItem from="1662193024720" duration="6754000" />
+      <workItem from="1662449746076" duration="1594000" />
+      <workItem from="1662548287644" duration="1198000" />
+      <workItem from="1662551555453" duration="1639000" />
+      <workItem from="1662640603686" duration="9352000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1658323024375</created>
@@ -292,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662111682507</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Add selector links new-old">
+      <created>1662200786407</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1662200786407</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +340,8 @@
     <MESSAGE value="Big Update Add whitePage Selector and Domain" />
     <MESSAGE value="micro fix selector" />
     <MESSAGE value="micro fix selector enabled new white" />
-    <option name="LAST_COMMIT_MESSAGE" value="micro fix selector enabled new white" />
+    <MESSAGE value="Add selector links new-old" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add selector links new-old" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

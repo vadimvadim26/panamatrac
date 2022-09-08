@@ -12,8 +12,24 @@ padding-top: 25px;
 }
 
 
-
-
+.customchiplist{
+  display:flex
+}
+.linksStatus{
+  margin: -5px 10px 20px 10px;
+}
+.linksStatus.activel{
+  color: #fff;
+  background-color: rgb(69 188 101 / 90%);
+}
+.linksStatus.removel{
+  color: #fff;
+  background-color: rgb(69 116 188 / 90%);
+}
+.linksStatus.bannedl{
+  color: #fff;
+  background-color: #f44336c2;
+}
 
 .ES_color{
   background-color: #ffd740;
