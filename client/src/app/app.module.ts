@@ -41,6 +41,7 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDialogModule} from '@angular/material/dialog';
+import { DomnsetstatComponent } from './domnsetstat/domnsetstat.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +59,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     PrelandingcreatorComponent,
     UserPageComponent,
     LinksPageComponent,
-    DomaincreatorComponent
+    DomaincreatorComponent,
+    DomnsetstatComponent
   ],
   imports: [
     BrowserModule,

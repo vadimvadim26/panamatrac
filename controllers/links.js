@@ -56,23 +56,17 @@ module.exports.removelink = async function(req, res){
 
 module.exports.updateDomain = async function(req, res){
    console.log(req.body)
-    if (req.body.linkStatus === 'removed'){
+    if (req.body.linkStatus){
         try{
-            const links = await Links.updateOne({_id: req.body.linkId}, {status: 'removed'})
+            const links = await Links.updateOne({_id: req.body.linkId}, {status: req.body.linkStatus})
             res.status(200).json(links)
         }catch (e){
             errorHandler(res, e)
         }
-    }else if(req.body.linkStatus === 'banned'){
+    }else if(req.body.linksDead){
+        console.log(req.body.linksDead)
         try{
-            const links = await Links.updateOne({_id: req.body.linkId}, {status: 'banned'})
-            res.status(200).json(links)
-        }catch (e){
-            errorHandler(res, e)
-        }
-    }else if(req.body.linkStatus === 'free'){
-        try{
-            const links = await Links.updateOne({_id: req.body.linkId}, {status: 'free'})
+            let links = await Links.updateOne({domain: req.body.domain},{status: req.body.status})
             res.status(200).json(links)
         }catch (e){
             errorHandler(res, e)
