@@ -10,11 +10,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed0bb601-9039-419c-8a66-84207e17401a" name="Default Changelist" comment="Link remove-baned-free">
+    <list default="true" id="ed0bb601-9039-419c-8a66-84207e17401a" name="Default Changelist" comment="scss fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/links-page/links-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/links-page/links-page.component.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +36,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/app.js" root0="SKIP_INSPECTION" />
@@ -142,7 +142,8 @@
       <workItem from="1662707985673" duration="5814000" />
       <workItem from="1664804695755" duration="605000" />
       <workItem from="1664821745810" duration="16000" />
-      <workItem from="1665050063911" duration="79000" />
+      <workItem from="1665050063911" duration="751000" />
+      <workItem from="1665065467364" duration="320000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1658323024375</created>
@@ -298,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662650414781</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="scss fix">
+      <created>1665050210056</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1665050210056</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +347,8 @@
     <MESSAGE value="micro fix selector enabled new white" />
     <MESSAGE value="Add selector links new-old" />
     <MESSAGE value="Link remove-baned-free" />
-    <option name="LAST_COMMIT_MESSAGE" value="Link remove-baned-free" />
+    <MESSAGE value="scss fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="scss fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
