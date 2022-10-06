@@ -10,11 +10,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed0bb601-9039-419c-8a66-84207e17401a" name="Default Changelist" comment="">
+    <list default="true" id="ed0bb601-9039-419c-8a66-84207e17401a" name="Default Changelist" comment="Link remove-baned-free">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/offertools/offertools.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/offertools/offertools.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/links.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/links.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/dashboard-page/dashboard-page.component.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,20 +52,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.6.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.6.0&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/panamatrack&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\wamp64\\www\\panamatrack\\client\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\panamatrack\models" />
@@ -146,6 +140,9 @@
       <workItem from="1662551555453" duration="1639000" />
       <workItem from="1662640603686" duration="9659000" />
       <workItem from="1662707985673" duration="5814000" />
+      <workItem from="1664804695755" duration="605000" />
+      <workItem from="1664821745810" duration="16000" />
+      <workItem from="1665050063911" duration="79000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1658323024375</created>
@@ -317,6 +314,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
