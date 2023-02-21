@@ -55,13 +55,22 @@ module.exports.removelink = async function(req, res){
 }
 
 module.exports.updateDomain = async function(req, res){
-   console.log(req.body)
+
     if (req.body.linkStatus){
         try{
             const links = await Links.updateOne({_id: req.body.linkId}, {status: req.body.linkStatus})
             res.status(200).json(links)
         }catch (e){
             errorHandler(res, e)
+        }
+    }else if (req.body.freelink){
+        console.log(req.body.name)
+        try{
+            const links = await Links.updateOne({domain: req.body.name}, {status: 'free', user_id: ''})
+            res.status(200).json(links)
+        }catch (e){
+            errorHandler(res, e)
+
         }
     }else if(req.body.linksDead){
         console.log(req.body.linksDead)
@@ -139,7 +148,10 @@ module.exports.update = async function (req, res) {
             )
             res.status(200).json(links)
         }
-    }else {
+    }
+
+
+    else {
         errorHandler(res)
     }
 
