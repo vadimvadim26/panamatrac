@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {CampaignServices} from "../shared/services/campaign.service";
 import {LinksServices} from "../shared/services/links.services";
 
 @Component({
@@ -8,40 +8,53 @@ import {LinksServices} from "../shared/services/links.services";
   styleUrls: ['./domnsetstat.component.scss']
 })
 export class DomnsetstatComponent implements OnInit {
-  form:any
-  statusdomain: string = 'remove'
+  alllinks: any
   constructor(
-    private  linksService: LinksServices
+    private  campaignService: CampaignServices,
+    private  linksServices: LinksServices,
   ) { }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      domains: new FormControl(null, [Validators.required])
+
+  }
+
+
+
+  showFreeDom(){
+
+    this.campaignService.getDomainid().subscribe(data =>{
+      this.alllinks = data
+
+      let freelinks = []
+
+      for(let i = 0; i<this.alllinks.length; i++){
+        let dom = this.alllinks[i]
+
+        if(dom.default_campaign_id === 0){
+          console.log(dom.name)
+          freelinks.push(
+            {
+              'name': dom.name,
+              'freelink': true
+            }
+          )
+        }
+
+      }
+
+      for(let b=0; b<freelinks.length; b++){
+        console.log('+')
+        let frelink = freelinks[b]
+        this.linksServices.updateDomain(frelink).subscribe(()=>{
+
+        })
+      }
+
+
+
     })
+
   }
-
-  setStatusDom(status: string){
-    this.statusdomain = status
-  }
-
- setStatus(){
-
-   let split = ' '
-   let domain = this.form.value.domains.split(split)
-
-     const newlinks = {
-       linksDead: true,
-       domain: domain,
-       status: this.statusdomain
-     }
-
-     console.log(newlinks)
-     this.linksService.updateDomain(newlinks).subscribe(res => {
-       console.log(res)
-     })
-
-
- }
 
 
 }
