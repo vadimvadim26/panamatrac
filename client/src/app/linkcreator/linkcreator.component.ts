@@ -93,9 +93,13 @@ constructor(private  linksService: LinksServices,
     this.whiteService.getWhiteLand(geo).subscribe( data=>{
 
       if( geo === 'EC' ||
-          geo === 'CR' ||
-          geo === 'MX' ||
-          geo === 'PE'){
+        geo === 'CR' ||
+         geo === 'CL' ||
+         geo === 'GT' ||
+         geo === 'CO' ||
+        geo === 'MX' ||
+        geo === 'PE'
+        ){
         geo = 'ES'
       }
       for(let i = 0; i<data.length; i++){
