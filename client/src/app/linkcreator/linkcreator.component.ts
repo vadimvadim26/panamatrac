@@ -95,7 +95,7 @@ constructor(private  linksService: LinksServices,
       if( geo === 'EC' ||
           geo === 'CR' ||
           geo === 'MX' ||
-          geo === 'PT'){
+          geo === 'PE'){
         geo = 'ES'
       }
       for(let i = 0; i<data.length; i++){
@@ -134,8 +134,12 @@ constructor(private  linksService: LinksServices,
 
       if( geo === 'EC' ||
         geo === 'CR' ||
+         geo === 'CL' ||
+         geo === 'GT' ||
+         geo === 'CO' ||
         geo === 'MX' ||
-        geo === 'PT'){
+        geo === 'PE'
+        ){
         geo = 'ES'
       }
       for(let i = 0; i<data.length; i++){
@@ -247,8 +251,9 @@ constructor(private  linksService: LinksServices,
                                     }else if(
                                       this.newbundle.geo === 'EC' ||
                                       this.newbundle.geo === 'CR' ||
+                                      this.newbundle.geo === 'CL' ||
                                       this.newbundle.geo === 'MX' ||
-                                      this.newbundle.geo === 'PT'
+                                      this.newbundle.geo === 'PE'
                                     ){
                                       let Geo = 'ES'
                                       if(whiteGeo === Geo){
