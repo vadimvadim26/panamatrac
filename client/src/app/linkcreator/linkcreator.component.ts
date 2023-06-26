@@ -256,6 +256,8 @@ constructor(private  linksService: LinksServices,
                                       this.newbundle.geo === 'EC' ||
                                       this.newbundle.geo === 'CR' ||
                                       this.newbundle.geo === 'CL' ||
+                                       this.newbundle.geo === 'GT' ||
+                                       this.newbundle.geo === 'CO' ||
                                       this.newbundle.geo === 'MX' ||
                                       this.newbundle.geo === 'PE'
                                     ){
