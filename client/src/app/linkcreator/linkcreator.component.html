@@ -45,6 +45,7 @@
           <mat-radio-group *ngIf="newbundle.geo" class="mat-radio-list">
             <mat-radio-button checked="true" class="example-margin" (click)="setOldDomain()" value="Old">Old <span style="font-size: 12px"> {{newbundle.all_links_count.free.length}}</span></mat-radio-button>
             <mat-radio-button  class="example-margin" (click)="setNewDomain()" value="New">New <span style="font-size: 12px"> {{newbundle.all_links_count.new.length}}</span></mat-radio-button>
+            <mat-radio-button  class="example-margin" (click)="getAllDomainZones()" value="New">Subdomain</mat-radio-button>
           </mat-radio-group>
         </section>
 
@@ -103,6 +104,31 @@
           </button>
         </mat-chip>
       </mat-chip-list>
+
+      <mat-chip-list *ngIf="zoneslistbool && newbundle.opened"  class="white-chip-list">
+        <mat-chip
+          *ngFor="let zonesitem of uniqueDomainZonesArray"
+          (click)="testGetZones()"
+          class="white-list-item"
+        >
+          {{zonesitem}}
+          <button style="margin-left:0 "disabled
+
+
+                  matChipRemove>
+            <mat-icon
+              style="color: #717279;
+              width: 19px;
+              height: 19px;
+              font-size: 12px;"
+            >
+              pan_tool
+            </mat-icon>
+          </button>
+
+        </mat-chip>
+      </mat-chip-list>
+
 
 </div>
 
