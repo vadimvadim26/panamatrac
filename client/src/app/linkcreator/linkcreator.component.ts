@@ -93,6 +93,7 @@ constructor(private  linksService: LinksServices,
     this.whiteService.getWhiteLand(geo).subscribe( data=>{
 
       if( geo === 'EC' ||
+         geo === 'BO' ||
         geo === 'CR' ||
          geo === 'CL' ||
          geo === 'GT' ||
@@ -137,6 +138,7 @@ constructor(private  linksService: LinksServices,
     this.whiteService.getWhiteLand(geo).subscribe( data=>{
 
       if( geo === 'EC' ||
+         geo === 'BO' ||
         geo === 'CR' ||
          geo === 'CL' ||
          geo === 'GT' ||
@@ -254,6 +256,7 @@ constructor(private  linksService: LinksServices,
                                       })
                                     }else if(
                                       this.newbundle.geo === 'EC' ||
+                                      this.newbundle.geo === 'BO' ||
                                       this.newbundle.geo === 'CR' ||
                                       this.newbundle.geo === 'CL' ||
                                        this.newbundle.geo === 'GT' ||
