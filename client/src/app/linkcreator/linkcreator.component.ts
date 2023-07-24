@@ -4,7 +4,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {LinksServices} from "../shared/services/links.services";
 import {CampaignServices} from "../shared/services/campaign.service";
 import {WhiteServices} from "../shared/services/white.services";
-
+import { CloudflareService } from '../shared/services/cloudflare.service';
 
 @Component({
   selector: 'app-linkcreator',
@@ -12,8 +12,11 @@ import {WhiteServices} from "../shared/services/white.services";
   styleUrls: ['./linkcreator.component.scss']
 })
 export class LinkcreatorComponent{
+  uniqueDomainZonesArray: any
   domain_status: string = ''
+  domainszones: any
   manualwhite: boolean = false
+  zoneslistbool: boolean = false
   whitelistbool: boolean = false
   getwhitebool: boolean = false
   getonewhite: any
@@ -38,10 +41,12 @@ export class LinkcreatorComponent{
   whitepack: any
   @Input()
   newbundle: any
+
 constructor(private  linksService: LinksServices,
             private campaignService: CampaignServices,
             private whiteService: WhiteServices,
-            private snackBar: MatSnackBar
+            private snackBar: MatSnackBar,
+            private cloudflareService: CloudflareService
 ) {}
 
   ngOnInit(){
@@ -173,6 +178,41 @@ constructor(private  linksService: LinksServices,
     })
   }
 
+  getAllDomainZones() {
+    this.newbundle.opened = true;
+    this.zoneslistbool = true;
+    this.linksService.allLinks().subscribe(data => {
+      const uniqueDomainZones = new Set(); // Создаем Set для хранения уникальных доменных зон
+
+      for (let i = 0; i < data.length; i++) {
+        this.domainszones = data[i];
+        let splitter = '.';
+        let split = this.domainszones.domain.split(splitter);
+        if (split[1]) { // Убеждаемся, что есть хотя бы один элемент после разделения
+          uniqueDomainZones.add(split[1]); // Добавляем в Set
+        }
+      }
+
+      // Преобразуем Set обратно в массив, если это необходимо
+      this.uniqueDomainZonesArray = Array.from(uniqueDomainZones);
+
+      console.log(this.uniqueDomainZonesArray);
+    });
+  }
+
+  testGetZones(){
+    let email = 'lkioter@outlook.com'
+    let apikey= 'ef6f3a7e18a6c09ad7e5dcee740c4ddbc0b29'
+    this.cloudflareService.getZones(email, apikey).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.error('HTTP Error:', error)
+      }
+    )
+  }
+
   setOldDomain(){
     this.domain_status = ''
   }
@@ -181,7 +221,9 @@ constructor(private  linksService: LinksServices,
     this.domain_status = '/:new'
   }
 
-
+  setNewSubDomain() {
+    this.domain_status = 'subdomain'
+  }
 
   onSubmit(){
     this.copy = false
@@ -199,7 +241,8 @@ constructor(private  linksService: LinksServices,
               let domain = this.domains.domain
               let activedom = {
                 domain: domain,
-                user_id: this.localuser.user_id
+                user_id: this.localuser.user_id,
+                use_count: this.domains.use_count
               }
               this.linksService.activelink(activedom).subscribe(links => {
                 this.campaignService.getonecamp().subscribe(camp => {
@@ -314,6 +357,7 @@ constructor(private  linksService: LinksServices,
                                 }
                                 let newlink = {
                                   user_id: this.localuser.user_id,
+                                  use_count: this.domains.use_count,
                                   status: 'active',
                                   domain: this.domains.domain,
                                   full_link: 'https://'+this.domains.domain+'/?e='+this.encryptedSub,
@@ -384,6 +428,7 @@ constructor(private  linksService: LinksServices,
                                 }
                                 let newlink = {
                                   user_id: this.localuser.user_id,
+                                  use_count: this.domains.use_count,
                                   status: 'active',
                                   domain: this.domains.domain,
                                   full_link: 'https://'+this.domains.domain+'/?e='+this.encryptedSub,
@@ -460,4 +505,6 @@ constructor(private  linksService: LinksServices,
       )
     }
   }
+
+
 }

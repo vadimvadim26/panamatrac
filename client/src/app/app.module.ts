@@ -21,6 +21,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatChipsModule} from '@angular/material/chips';
 import { LinkcreatorComponent } from './linkcreator/linkcreator.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.component';
 import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.component';
@@ -42,6 +43,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDialogModule} from '@angular/material/dialog';
 import { DomnsetstatComponent } from './domnsetstat/domnsetstat.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +88,8 @@ import { DomnsetstatComponent } from './domnsetstat/domnsetstat.component';
     ClipboardModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   providers: [
     {

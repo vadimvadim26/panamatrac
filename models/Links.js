@@ -10,6 +10,22 @@ const linksSchema = new Schema({
 		type: String,
 		default: ''
 	},
+	use_count: {
+		type: Number,
+		default: 0
+	},
+	group_email: {
+		type: String,
+		default: ''
+	},
+	group_api: {
+		type: String,
+		default: ''
+	},
+	zone_id: {
+		type: String,
+		default: ''
+	},
 	status: {
 		type: String,
 		required: true,

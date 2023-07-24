@@ -31,6 +31,17 @@ app.use(
 		proxyTimeout: 7000,
 	},'')
 )
+/*app.use(
+	'/client/!*',
+	createProxyMiddleware({
+		target: 'https://api.cloudflare.com',
+		headers: {
+			"Connection": "keep-alive",
+			'Accept': '*'
+		},
+		secure: false, // Игнорирование проверки TLS (небезопасно!)
+	})
+)*/
 
 app.use(passport.initialize())
 require('./middleware/passport')(passport)

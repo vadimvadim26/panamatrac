@@ -116,11 +116,13 @@ module.exports.update = async function (req, res) {
 
     if (!req.body.offer) {
         if (req.body.domain) {
-
+            console.log(req.body)
             const links = await Links.updateOne(
                 {domain: req.body.domain},
                 {status: 'inwork',
-                        user_id: req.body.user_id}
+                        user_id: req.body.user_id,
+                        use_count: req.body.use_count+1
+                }
             )
             res.status(200).json(links)
         }
