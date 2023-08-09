@@ -256,6 +256,12 @@ export class DashboardPageComponent implements OnInit {
     /* console.log(offer)*/
   }
 
+
+  addToFavorite(offer: string, user: string){
+    console.log(offer, user, 'ge')
+    this.snackBar.open(offer + ' added to favorites ⭐')
+  }
+
   geoActivator(offer: string, geo: string) {
 
     let geoactive = {

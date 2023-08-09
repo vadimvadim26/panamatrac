@@ -27,16 +27,15 @@
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"><img class="offer_img" [src]="offer.imageSrc"></div>
     <mat-card-title>{{offer.name}}</mat-card-title>
+
     <mat-icon
       style="color: rgb(237 196 23 / 65%)"
+      (click)="addToFavorite(offer.name, user);"
+
     >
           grade
         </mat-icon>
-    <mat-icon
-      style="color: rgb(170 170 170 / 65%)"
-    >
-          grade
-        </mat-icon>
+
     <mat-card-subtitle>
 
 
@@ -133,6 +132,7 @@
 
     <mat-tab>
       <ng-template mat-tab-label>
+
         Favorites
         <mat-icon style="font-size: 17px;   color: rgb(237 196 23 / 97%);" class="example-tab-icon">
 
@@ -152,16 +152,17 @@
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"><img class="offer_img" [src]="offer.imageSrc"></div>
     <mat-card-title>{{offer.name}}</mat-card-title>
+
+
     <mat-icon
+      (click)="addToFavorite(offer.name, user);"
       style="color: rgb(237 196 23 / 65%)"
+
     >
           grade
         </mat-icon>
-    <mat-icon
-      style="color: rgb(170 170 170 / 65%)"
-    >
-          grade
-        </mat-icon>
+
+
     <mat-card-subtitle>
 
 
