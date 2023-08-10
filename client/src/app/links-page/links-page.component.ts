@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LinksServices} from "../shared/services/links.services";
+import {PrelandingsServices} from "../shared/services/prelandings.services";
 
 @Component({
   selector: 'app-links-page',
@@ -9,9 +10,12 @@ import {LinksServices} from "../shared/services/links.services";
 export class LinksPageComponent {
   localuser: any
   links: any
+  prelandings: any
   linkstatus: string = 'active'
+  src: any;
   constructor(
-    private  linksService: LinksServices
+    private  linksService: LinksServices,
+    private prelandingsService: PrelandingsServices
   ) { }
 
   ngOnInit() {
@@ -24,6 +28,15 @@ export class LinksPageComponent {
       this.links = res
 
     })
+
+
+    this.prelandingsService.fetch().subscribe(prelandings =>{
+
+      this.prelandings = prelandings
+
+    })
+    
+    
   }
 
 

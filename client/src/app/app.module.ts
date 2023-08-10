@@ -43,6 +43,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDialogModule} from '@angular/material/dialog';
 import { DomnsetstatComponent } from './domnsetstat/domnsetstat.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { DomnsetstatComponent } from './domnsetstat/domnsetstat.component';
     MatCheckboxModule,
     MatRadioModule,
     MatDialogModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatBadgeModule
   ],
   providers: [
     {

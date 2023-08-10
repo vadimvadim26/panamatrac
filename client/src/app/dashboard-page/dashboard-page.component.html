@@ -15,6 +15,10 @@
         Offers
         <mat-icon style="font-size: 17px;    color: #3a37d8;" class="example-tab-icon">widgets</mat-icon>
 
+
+
+
+
       </ng-template>
 
       <ng-template matTabContent>
@@ -263,6 +267,9 @@
       <ng-template mat-tab-label>
         links
         <mat-icon
+          matBadge="{{mylinkscount}}"
+          matBadgeSize="small"
+          matBadgeColor="accent"
           style="
           font-size: 19px;
           color: #a73dca;

@@ -45,6 +45,7 @@ export class DashboardPageComponent implements OnInit {
   geosofoffer: any
   prelandingsTrack: any
   id: string = ''
+  mylinkscount: any
   landings_groupId: string = '94'
   name_divider: string = '_'
   constructor(
@@ -129,6 +130,12 @@ export class DashboardPageComponent implements OnInit {
     })
 
 
+      this.linksService.getlinks('active').subscribe(res =>{
+        this.mylinkscount = res
+        this.mylinkscount = this.mylinkscount.length
+
+      })
+
 
   }
 
@@ -212,6 +219,9 @@ export class DashboardPageComponent implements OnInit {
     this.newbundle.geo = geo
   }
 
+
+
+
   getLinks(){
     this.linkscount.free = []
     this.linkscount.new = []
@@ -259,7 +269,7 @@ export class DashboardPageComponent implements OnInit {
 
   addToFavorite(offer: string, user: string){
     console.log(offer, user, 'ge')
-    this.snackBar.open(offer + ' added to favorites ⭐')
+    this.snackBar.open(offer + ' added to favorites ⭐', 'подякував')
   }
 
   geoActivator(offer: string, geo: string) {
