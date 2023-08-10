@@ -30,15 +30,18 @@
 <mat-card *ngIf="offer.active === true" class="offers-card">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"><img class="offer_img" [src]="offer.imageSrc"></div>
-    <mat-card-title>{{offer.name}}</mat-card-title>
+    <mat-card-title class="offerNameCard">{{offer.name}}
 
-    <mat-icon
-      style="color: rgb(237 196 23 / 65%)"
-      (click)="addToFavorite(offer.name, user);"
+      <mat-icon
+        style="color: rgb(237 196 23 / 65%)"
+        (click)="addToFavorite(offer.name, user);"
 
-    >
+      >
           grade
         </mat-icon>
+    </mat-card-title>
+
+
 
     <mat-card-subtitle>
 

@@ -269,7 +269,7 @@ export class DashboardPageComponent implements OnInit {
 
   addToFavorite(offer: string, user: string){
     console.log(offer, user, 'ge')
-    this.snackBar.open(offer + ' added to favorites ⭐', 'подякував')
+    this.snackBar.open(offer + ' added to favorites ⭐', 'ok')
   }
 
   geoActivator(offer: string, geo: string) {
