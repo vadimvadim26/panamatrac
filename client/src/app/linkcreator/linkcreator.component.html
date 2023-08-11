@@ -5,7 +5,11 @@
 
 
 
-    <div mat-card-avatar class="offer-image"><img class="offer_img" [src]="newbundle.offer_img"></div>
+    <div mat-card-avatar class="offer-image" *ngIf="newbundle.offer_img">
+
+      <img class="offer_img" [src]="newbundle.offer_img">
+
+    </div>
 
 
     <mat-card-title>
