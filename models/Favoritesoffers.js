@@ -14,8 +14,7 @@ user_id: {
 },
 	offer_id: {
 		type: String,
-		required: true,
-		unique: true
+		required: true
 
 	}
 

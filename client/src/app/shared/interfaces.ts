@@ -14,6 +14,12 @@ export interface Geosofoffers {
   _id?: string
 }
 
+export interface Favoritesoffers {
+  user_id: string
+  offer_id: string
+  _id?: string
+}
+
 export interface Links {
   user_id: string
   status: string

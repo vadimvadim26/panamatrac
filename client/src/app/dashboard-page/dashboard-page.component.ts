@@ -6,6 +6,7 @@ import {GeosofoffersServices} from "../shared/services/geosofoffers.services";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {LinkcreatorComponent} from "../linkcreator/linkcreator.component";
+import {FavoritesoffersServices} from "../shared/services/favoritesoffers.services";
 
 @Component({
   selector: 'app-offers-page',
@@ -23,6 +24,7 @@ export class DashboardPageComponent implements OnInit {
   linlcreator:  LinkcreatorComponent | undefined
   newbundle: any
   linkscount: any
+  favoritescount: any
   statuslink: string = 'free'
   openedgeo: any
   aboutoffer: any
@@ -31,6 +33,7 @@ export class DashboardPageComponent implements OnInit {
   activepreland: any
   localname: any
   disabled: boolean = false
+  favoriteofferbool: boolean = false
   developer: boolean = false
   admin: boolean = false
   user: any
@@ -41,6 +44,7 @@ export class DashboardPageComponent implements OnInit {
   form: any
   offers: any
   prelandings: any
+  favoritesoffers: any
   geosofoffers: any
   geosofoffer: any
   prelandingsTrack: any
@@ -52,6 +56,7 @@ export class DashboardPageComponent implements OnInit {
               private  offersService: OffersServices,
               private prelandingsService: PrelandingsServices,
               private geosofoffersService: GeosofoffersServices,
+              private favoritesoffersService: FavoritesoffersServices,
               private  linksService: LinksServices,
               private snackBar: MatSnackBar,
               private http: HttpClient
@@ -126,6 +131,13 @@ export class DashboardPageComponent implements OnInit {
     this.prelandingsService.fetch().subscribe(prelandings =>{
 
       this.prelandings = prelandings
+
+    })
+
+    this.favoritesoffersService.getAll(this.user).subscribe(favoritesoffers =>{
+      console.log(favoritesoffers, 'sd')
+      this.favoritesoffers = favoritesoffers
+      this.favoritescount = this.favoritesoffers.length
 
     })
 
@@ -268,8 +280,41 @@ export class DashboardPageComponent implements OnInit {
 
 
   addToFavorite(offer: string, user: string){
-    console.log(offer, user, 'ge')
-    this.snackBar.open(offer + ' added to favorites ⭐', 'ok')
+    let favoriteoffer = {
+      offer: offer,
+      user: user
+    }
+    console.log(favoriteoffer)
+
+    this.favoritesoffersService.create(favoriteoffer).subscribe(favoritesoffers => {
+      this.favoritesoffersService.getAll(this.user).subscribe(favoritesoffers =>{
+
+        this.favoritesoffers = favoritesoffers
+        this.favoritescount = this.favoritesoffers.length
+      })
+      this.snackBar.open(offer + ' added to favorites ⭐', 'ok')
+    })
+
+  }
+
+  removeFavorite(offer: string, user: string){
+    let favoriteoffer = {
+      offer: offer,
+      user: user
+    }
+    console.log(favoriteoffer)
+
+    this.favoritesoffersService.update(favoriteoffer).subscribe(favoritesoffers => {
+      this.favoritesoffersService.getAll(this.user).subscribe(favoritesoffers =>{
+
+        this.favoritesoffers = favoritesoffers
+        this.favoritescount = this.favoritesoffers.length
+
+
+      })
+      this.snackBar.open(offer + ' removed from favorites ⭐', 'ok')
+    })
+
   }
 
   geoActivator(offer: string, geo: string) {

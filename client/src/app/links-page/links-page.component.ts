@@ -35,8 +35,8 @@ export class LinksPageComponent {
       this.prelandings = prelandings
 
     })
-    
-    
+
+
   }
 
 
@@ -48,20 +48,20 @@ export class LinksPageComponent {
   }
 
 
-updateLink(link: string, status: string){
+updateLink(link: string, count: any){
    const newlink = {
-      linkId: link,
-      linkStatus: status
+      domain: link,
+      count: count
     }
-    console.log(newlink)
-    this.linksService.updateDomain(newlink).subscribe(res =>{
+    console.log(newlink, 'remove')
+   /* this.linksService.updateDomain(newlink).subscribe(res =>{
       if(res){
         this.linksService.getlinks(this.linkstatus).subscribe(res =>{
           this.links = res
         })
       }
 
-    })
+    })*/
   }
 
 }

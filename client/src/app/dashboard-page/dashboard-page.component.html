@@ -10,6 +10,146 @@
   <mat-tab-group style="width: 100%" animationDuration="0ms">
 
 
+
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+
+        Favorites
+        <mat-icon
+          matBadge="{{favoritescount}}"
+          matBadgeSize="small"
+          matBadgeColor="accent"
+          style="font-size: 17px;   color: rgb(237 196 23 / 97%);" class="example-tab-icon">
+
+          grade
+
+        </mat-icon>
+
+      </ng-template>
+
+      <ng-template matTabContent>
+
+
+        <div  class="offer_box">
+          <div *ngFor="let favorite of favoritesoffers">
+
+<span *ngFor="let offer of offers">
+<mat-card *ngIf="offer.active === true && offer.name === favorite.offer_id" class="offers-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"><img class="offer_img" [src]="offer.imageSrc"></div>
+    <mat-card-title class="offerNameCard">{{offer.name}}</mat-card-title>
+
+
+     <div  *ngFor="let favorite of favoritesoffers">
+
+      <mat-icon *ngIf="favorite.offer_id === offer.name"
+                style="color: rgb(237 196 23 / 65%); cursor: pointer;"
+                (click)="removeFavorite(offer.name, user);"
+
+      >
+          grade
+        </mat-icon>
+
+        </div>
+
+
+    <mat-card-subtitle>
+
+
+
+
+  		<mat-chip-list  aria-label="Fish selection">
+        <div *ngFor="let geooffer of geosofoffers">
+        <mat-chip
+          *ngIf="geooffer.offer === offer.name && geooffer.active === true"
+          class="{{geooffer.geo}}_color"
+          (click)="openPreland(geooffer.offer,  geooffer.geo)"
+        >
+          {{geooffer.geo}}
+          <button disabled
+                  *ngIf="openedgeo.opened === true
+                  &&
+                  openedgeo.geo === geooffer.geo
+                  &&
+                  openedgeo.offer === geooffer.offer
+                  "
+                  matChipRemove>
+        <mat-icon
+          style="color: rgb(0 0 0 / 65%);"
+        >
+          visibility
+        </mat-icon>
+      </button>
+        </mat-chip>
+      </div>
+			</mat-chip-list>
+
+    </mat-card-subtitle>
+
+  </mat-card-header>
+    <mat-divider></mat-divider>
+
+  <mat-card-content>
+
+<div *ngIf="geosofoffer">
+
+    <mat-chip-list *ngIf="geosofoffer.offer === offer.name" claaria-label="Fish selection">
+
+        <div *ngFor="let preland of prelandings">
+        <mat-chip
+          *ngIf="preland.geo === geosofoffer.geo
+          && preland.offer === geosofoffer.offer
+          && preland.active === true"
+          (click)="
+          newBundle(preland, offer.imageSrc);
+          whitePack(preland.geo);
+          getLinks()
+        "
+        >
+
+          <img matChipAvatar
+               [src]="preland.avatar"
+          />
+
+          {{preland.name}}
+
+          <button disabled
+                  *ngIf="
+                  openedpreland.opened === true
+                  &&
+                  openedpreland.geo === geosofoffer.geo
+                  &&
+                  openedpreland.offer === geosofoffer.offer
+                  &&
+                  openedpreland.name === preland.name
+                  "
+                  matChipRemove>
+        <mat-icon
+          style="color: #717279;"
+        >
+          fingerprint
+        </mat-icon>
+      </button>
+        </mat-chip>
+      </div>
+			</mat-chip-list>
+</div>
+  </mat-card-content>
+
+  <mat-card-actions>
+
+
+  </mat-card-actions>
+</mat-card>
+</span>
+
+          </div>
+        </div>
+      </ng-template>
+
+    </mat-tab>
+
     <mat-tab>
       <ng-template mat-tab-label>
         Offers
@@ -27,18 +167,44 @@
 
         <div class="offer_box">
 <span *ngFor="let offer of offers">
-<mat-card *ngIf="offer.active === true" class="offers-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"><img class="offer_img" [src]="offer.imageSrc"></div>
-    <mat-card-title class="offerNameCard">{{offer.name}}
+<mat-card *ngIf="offer.active === true" class="offers-card" style="position: relative;">
+  <span style="width: 100%; position: absolute;">
+  <div style="width: 40px; right: -248px; position: relative;">
 
       <mat-icon
-        style="color: rgb(237 196 23 / 65%)"
+        style="color: rgb(157 155 144 / 51%); cursor: pointer;"
         (click)="addToFavorite(offer.name, user);"
+        class="gray_{{offer.name}}"
 
       >
           grade
         </mat-icon>
+
+      <div  *ngFor="let favorite of favoritesoffers">
+
+
+        <span *ngIf="favorite.offer_id === offer.name"
+        style="position: absolute; top: 0px; z-index: 1000000">
+
+      <mat-icon
+                style="color: rgb(237 196 23 / 95%); cursor: pointer;"
+                (click)="removeFavorite(offer.name, user);"
+                class="gold_{{offer.name}}"
+
+      >
+          grade
+        </mat-icon>
+</span>
+
+        </div>
+
+        </div>
+    </span>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"><img class="offer_img" [src]="offer.imageSrc"></div>
+    <mat-card-title class="offerNameCard">{{offer.name}}
+
+
     </mat-card-title>
 
 
@@ -136,134 +302,6 @@
       </ng-template>
 
     </mat-tab>
-
-    <mat-tab>
-      <ng-template mat-tab-label>
-
-        Favorites
-        <mat-icon style="font-size: 17px;   color: rgb(237 196 23 / 97%);" class="example-tab-icon">
-
-          grade
-
-        </mat-icon>
-
-      </ng-template>
-
-      <ng-template matTabContent>
-
-
-
-        <div class="offer_box">
-<span *ngFor="let offer of offers">
-<mat-card *ngIf="offer.active === true" class="offers-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"><img class="offer_img" [src]="offer.imageSrc"></div>
-    <mat-card-title>{{offer.name}}</mat-card-title>
-
-
-    <mat-icon
-      (click)="addToFavorite(offer.name, user);"
-      style="color: rgb(237 196 23 / 65%)"
-
-    >
-          grade
-        </mat-icon>
-
-
-    <mat-card-subtitle>
-
-
-
-
-  		<mat-chip-list  aria-label="Fish selection">
-        <div *ngFor="let geooffer of geosofoffers">
-        <mat-chip
-          *ngIf="geooffer.offer === offer.name && geooffer.active === true"
-          class="{{geooffer.geo}}_color"
-          (click)="openPreland(geooffer.offer,  geooffer.geo)"
-        >
-          {{geooffer.geo}}
-          <button disabled
-                  *ngIf="openedgeo.opened === true
-                  &&
-                  openedgeo.geo === geooffer.geo
-                  &&
-                  openedgeo.offer === geooffer.offer
-                  "
-                  matChipRemove>
-        <mat-icon
-          style="color: rgb(0 0 0 / 65%);"
-        >
-          visibility
-        </mat-icon>
-      </button>
-        </mat-chip>
-      </div>
-			</mat-chip-list>
-
-    </mat-card-subtitle>
-
-  </mat-card-header>
-    <mat-divider></mat-divider>
-
-  <mat-card-content>
-
-<div *ngIf="geosofoffer">
-
-    <mat-chip-list *ngIf="geosofoffer.offer === offer.name" claaria-label="Fish selection">
-
-        <div *ngFor="let preland of prelandings">
-        <mat-chip
-          *ngIf="preland.geo === geosofoffer.geo
-          && preland.offer === geosofoffer.offer
-          && preland.active === true"
-          (click)="
-          newBundle(preland, offer.imageSrc);
-          whitePack(preland.geo);
-          getLinks()
-        "
-        >
-
-          <img matChipAvatar
-               [src]="preland.avatar"
-          />
-
-          {{preland.name}}
-
-          <button disabled
-                  *ngIf="
-                  openedpreland.opened === true
-                  &&
-                  openedpreland.geo === geosofoffer.geo
-                  &&
-                  openedpreland.offer === geosofoffer.offer
-                  &&
-                  openedpreland.name === preland.name
-                  "
-                  matChipRemove>
-        <mat-icon
-          style="color: #717279;"
-        >
-          fingerprint
-        </mat-icon>
-      </button>
-        </mat-chip>
-      </div>
-			</mat-chip-list>
-</div>
-  </mat-card-content>
-
-  <mat-card-actions>
-
-
-  </mat-card-actions>
-</mat-card>
-</span>
-        </div>
-      </ng-template>
-
-    </mat-tab>
-
 
 
     <mat-tab>
