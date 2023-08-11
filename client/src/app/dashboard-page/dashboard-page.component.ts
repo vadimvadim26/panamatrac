@@ -92,7 +92,7 @@ export class DashboardPageComponent implements OnInit {
       geo: '',
       name: '',
       offer: '',
-      offer_img: '/uploads/notimage.png',
+      offer_img: '/uploads/11082023-124940_341-notimage.png',
       preland_img: '',
       preland_preview: '',
       preland_url: '',
