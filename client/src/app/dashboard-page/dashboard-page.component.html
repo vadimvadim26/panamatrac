@@ -36,22 +36,44 @@
 
 <span *ngFor="let offer of offers">
 <mat-card *ngIf="offer.active === true && offer.name === favorite.offer_id" class="offers-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"><img class="offer_img" [src]="offer.imageSrc"></div>
-    <mat-card-title class="offerNameCard">{{offer.name}}</mat-card-title>
+  <span style="width: 100%; position: absolute;">
+  <div style="width: 40px; right: -248px; position: relative;">
 
-
-     <div  *ngFor="let favorite of favoritesoffers">
-
-      <mat-icon *ngIf="favorite.offer_id === offer.name"
-                style="color: rgb(237 196 23 / 65%); cursor: pointer;"
-                (click)="removeFavorite(offer.name, user);"
+      <mat-icon
+        style="color: rgb(157 155 144 / 51%); cursor: pointer;"
+        (click)="addToFavorite(offer.name, user);"
+        class="gray_{{offer.name}}"
 
       >
           grade
         </mat-icon>
 
+      <div  *ngFor="let favorite of favoritesoffers">
+
+
+        <span *ngIf="favorite.offer_id === offer.name"
+              style="position: absolute; top: 0px; z-index: 1000000">
+
+      <mat-icon
+        style="color: rgb(237 196 23 / 95%); cursor: pointer;"
+        (click)="removeFavorite(offer.name, user);"
+        class="gold_{{offer.name}}"
+
+      >
+          grade
+        </mat-icon>
+</span>
+
         </div>
+
+        </div>
+    </span>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"><img class="offer_img" [src]="offer.imageSrc"></div>
+    <mat-card-title class="offerNameCard">{{offer.name}}</mat-card-title>
+
+
+
 
 
     <mat-card-subtitle>
