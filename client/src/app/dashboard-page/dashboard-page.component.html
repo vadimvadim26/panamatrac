@@ -86,6 +86,7 @@
         <mat-chip
           *ngIf="geooffer.offer === offer.name && geooffer.active === true"
           class="{{geooffer.geo}}_color"
+
           (click)="openPreland(geooffer.offer,  geooffer.geo)"
         >
           {{geooffer.geo}}
