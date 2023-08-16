@@ -44,6 +44,7 @@ import {MatRadioModule} from "@angular/material/radio";
 import {MatDialogModule} from '@angular/material/dialog';
 import { DomnsetstatComponent } from './domnsetstat/domnsetstat.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import {AllscriptsComponent} from "./allscripts/allscripts.component";
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import {MatBadgeModule} from '@angular/material/badge';
     OffertoolsComponent,
     PrelandingcreatorComponent,
     UserPageComponent,
+    AllscriptsComponent,
     LinksPageComponent,
     DomaincreatorComponent,
     DomnsetstatComponent
