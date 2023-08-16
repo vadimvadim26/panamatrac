@@ -12,13 +12,17 @@ export class AllscriptsComponent {
     constructor(private snackBar: MatSnackBar)
     { }
   code = `
-  <?php
+<?php
 if(isset($_SERVER['HTTP_HOST'])) {
     $current_domain = $_SERVER['HTTP_HOST'];
 } else {
 }
 $domarray = explode('.', $current_domain);
-$domain_path = $domarray[0] . '_' . $domarray[1];
+if(isset($domarray[2])){
+  $domain_path = $domarray[0] . '_' . $domarray[1]. '_' .$domarray[2];
+}else{
+  $domain_path = $domarray[0] . '_' . $domarray[1];
+}
 $file_path = 'preference/'.$domain_path.'.txt';
 $file_contents = file_get_contents($file_path);
 if ($file_contents !== false) {
@@ -29,6 +33,9 @@ if ($file_contents !== false) {
     }
 } else {
 }
+if (isset($data['preference']['redirect']) && $data['preference']['redirect'] !== false){
+  $rediofferlink = $data['preference']['link'];
+  }else{
 session_start();
 if (isset($_GET["e"])){
   $_SESSION["e"] = $_GET["e"];
@@ -46,7 +53,15 @@ $key = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
 $iv = 'Sirius1Sirius134';
 $decryptedData = openssl_decrypt($dataToDecrypt, $cypherMethod, $key, $options=0, $iv);
 $subarray = explode(' ', $decryptedData);
+}
 ?>
+
+//form hidden inputs
+<input type="hidden" name="x" id="x" value="<?=$subarray[0]?>">
+<input type="hidden" name="b" id="b" value="<?=$subarray[1]?>">
+<input type="hidden" name="t" id="t" value="<?=$subarray[2]?>">
+
+//PA_Idealica_ElPais lost
 `
   jsoncode = `
   {
@@ -61,17 +76,5 @@ $subarray = explode(' ', $decryptedData);
     }
   }
 `
-
-  copyToClipboard() {
-    const textField = document.createElement('textarea')
-    textField.innerText = this.code
-    document.body.appendChild(textField)
-    textField.select()
-    document.execCommand('copy')
-    this.snackBar.open('Code copied 🖥', 'ok')
-    textField.remove()
-  }
-
-
 
 }

@@ -14,8 +14,9 @@ const httpOptions = {
 export class CampaignServices{
   response: any
   options: any
-
+  newdompath: string = ''
   constructor( private http: HttpClient) {
+
   }
 
 
@@ -67,6 +68,37 @@ export class CampaignServices{
       default_campaign_id: campaign
   }
     return this.http.put('/admin_api/v1/domains/'+domain, body, httpOptions )
+  }
+
+  updateLanding(newlink: any, prelend_id: string,  sub: string, redirect: boolean){
+
+    let patharr = newlink.domain.split('.')
+    if(patharr[2]){
+      this.newdompath = 'preference/'+patharr[0]+'_'+patharr[1]+'_'+patharr[2]+'.txt'
+    }else{
+      this.newdompath = 'preference/'+patharr[0]+'_'+patharr[1]+'.txt'
+    }
+
+    let newdombody = {
+      "domain": newlink.domain,
+      "preference":     {
+        "redirect": redirect,
+        "sub1": sub,
+        "link": "",
+        "offer": "",
+        "offerimg": "",
+        "price": ""
+      }
+    }
+
+    let jsonStringdata = JSON.stringify(newdombody, null, 2);
+
+    let body = {
+      "path": this.newdompath,
+      "data": jsonStringdata
+
+    }
+    return this.http.put('/admin_api/v1/landing_pages/'+prelend_id+'/update_file', body, httpOptions )
   }
 
   subEncoder(sub1: any, sub2: string, sub3: any){

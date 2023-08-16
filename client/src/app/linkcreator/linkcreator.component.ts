@@ -360,7 +360,7 @@ constructor(private  linksService: LinksServices,
                                   use_count: this.domains.use_count,
                                   status: 'active',
                                   domain: this.domains.domain,
-                                  full_link: 'https://'+this.domains.domain+'/?e='+this.encryptedSub,
+                                  full_link: 'https://'+this.domains.domain,
                                   sub1: this.form.value.sub1,
                                   sub2: this.sub2,
                                   sub3: this.form.value.sub3,
@@ -374,8 +374,11 @@ constructor(private  linksService: LinksServices,
                                 }
                                 this.link = newlink
                                 this.fulldata = newlink
-
+                                let redirect = false
                                 this.campaignService.updateCampaign(hotcamp).subscribe(res => {
+                                })
+
+                                this.campaignService.updateLanding(this.link, this.newbundle.track_id, this.encryptedSub, redirect).subscribe(res => {
                                 })
 
                                 this.linksService.update(this.link).subscribe(links => {
@@ -389,7 +392,7 @@ constructor(private  linksService: LinksServices,
                                   this.response = res
 
                                   if (res) {
-                                    this.finishres = this.fulldata.full_link
+                                    this.finishres = 'https://'+this.fulldata.domain
                                     this.finish = true
                                   } else {
                                     this.finish = false
@@ -431,7 +434,7 @@ constructor(private  linksService: LinksServices,
                                   use_count: this.domains.use_count,
                                   status: 'active',
                                   domain: this.domains.domain,
-                                  full_link: 'https://'+this.domains.domain+'/?e='+this.encryptedSub,
+                                  full_link: 'https://'+this.domains.domain,
                                   sub1: this.form.value.sub1,
                                   sub2: this.sub2,
                                   sub3: this.form.value.sub3,
