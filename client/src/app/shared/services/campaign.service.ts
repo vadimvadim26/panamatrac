@@ -57,7 +57,7 @@ export class CampaignServices{
 
   updateCampaign(hotcamp: any){
     let body = {
-      name: hotcamp.geo+'_'+hotcamp.offer+'_'+hotcamp.preland,
+      name: hotcamp.geo+'_'+hotcamp.offer+'_'+hotcamp.preland+'('+hotcamp.sub2+'_'+hotcamp.sub3+')',
       group_id: hotcamp.group_id
     }
     return this.http.put('/admin_api/v1/campaigns/'+hotcamp.camp_id, body, httpOptions)

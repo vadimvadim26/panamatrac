@@ -353,7 +353,9 @@ constructor(private  linksService: LinksServices,
                                   geo: this.newbundle.geo,
                                   offer: this.newbundle.offer,
                                   preland: this.newbundle.name,
-                                  group_id: 96
+                                  group_id: 96,
+                                  sub2: this.sub2,
+                                  sub3: this.form.value.sub3
                                 }
                                 let newlink = {
                                   user_id: this.localuser.user_id,
