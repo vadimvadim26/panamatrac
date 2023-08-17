@@ -30,15 +30,15 @@ module.exports.allLinks = async function(req, res){
 }
 
 module.exports.getById = async function(req, res){
-        let split = '='
-        let paramarr = req.params.status.split(split)
+    let split = '='
+    let paramarr = req.params.status.split(split)
 
-           try{
-            const links = await Links.find({user_id: req.user._id,status: paramarr[1]})
-            res.status(200).json(links)
-        }catch (e){
-            errorHandler(res, e)
-        }
+    try{
+        const links = await Links.find({user_id: req.user._id,status: paramarr[1]})
+        res.status(200).json(links)
+    }catch (e){
+        errorHandler(res, e)
+    }
 
 
 }

@@ -1,16 +1,12 @@
-<div style="        max-width: 2115px;
-    display: flex;
-    flex-wrap: wrap;" class="links-container">
+<div *ngIf="slicedLinks" style="max-width: 2115px; display: flex; flex-wrap: wrap;" class="links-container">
+  <ng-container *ngFor="let link of slicedLinks">
 
-
-
-  <mat-card style="width: 300px; margin: 10px;" class="example-card"
-            *ngFor="let link of links">
-    <mat-card-header >
-      <div mat-card-avatar class="example-header-image"
-      style="position: relative;
+    <mat-card style="width: 300px; margin: 10px;" class="example-card" >
+      <mat-card-header >
+        <div mat-card-avatar class="example-header-image"
+             style="position: relative;
             width: 53px;"
-      >
+        >
 
 <span *ngFor="let preland of prelandings">
         <img matChipAvatar *ngIf="preland.name === link.preland && preland.offer === link.offer"
@@ -20,62 +16,29 @@ width: 100%"
         />
   </span>
 
-      </div>
-      <mat-card-title><mat-chip class="{{link.geo}}_color">{{link.geo}} </mat-chip>
-        <p class="link-subtitle"> {{ link.offer }} <span> {{ link.preland }} </span></p></mat-card-title>
-      <mat-card-subtitle><mat-chip class="{{ link.geo }}_color">{{link.domain}} </mat-chip></mat-card-subtitle>
-    </mat-card-header>
-   <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
-    <mat-card-content>
-     <!-- <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>-->
-    </mat-card-content>
-    <mat-card-actions>
-      <button disabled mat-button style="color: gray">EDIT</button>
-      <button disabled mat-button style="color: #ec7070;"
-              (click)="updateLink(link.domain, link.use_count)"
-      >REMOVE</button>
-    </mat-card-actions>
-  </mat-card>
+        </div>
+        <mat-card-title><mat-chip class="{{link.geo}}_color">{{link.geo}} </mat-chip>
+          <p class="link-subtitle"> {{ link.offer }} <span> {{ link.preland }} </span></p></mat-card-title>
+        <mat-card-subtitle><mat-chip class="{{ link.geo }}_color">{{link.domain}} </mat-chip></mat-card-subtitle>
+      </mat-card-header>
+      <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+      <mat-card-content>
+        <!-- <p>
+           The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+           A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+           bred for hunting.
+         </p>-->
+      </mat-card-content>
+      <mat-card-actions>
+        <button disabled mat-button style="color: gray">EDIT</button>
+        <button disabled mat-button style="color: #ec7070;"
+                (click)="updateLink(link.domain, link.use_count)"
+        >REMOVE</button>
+      </mat-card-actions>
+    </mat-card>
 
-
-
-
-
- <!-- <mat-accordion class="example-headers-align">
-
-    <mat-expansion-panel *ngFor="let link of links">
-
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <mat-chip class="{{link.geo}}_color">{{link.geo}} </mat-chip>
-          <p class="link-subtitle"> {{ link.offer }} <span> {{ link.preland }} </span></p>
-        </mat-panel-title>
-        <mat-panel-description style="    font-size: 12px;">
-          {{ link.full_link }}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-
-      <mat-action-row>
-        <button *ngIf="linkstatus === 'banned' || linkstatus === 'removed'" mat-button color="accent" [matMenuTriggerFor]="menufree"  #menuTrigger >Free</button>
-        <mat-menu #menufree>
-          <button mat-menu-item (click)="updateLink(link._id, 'free')">Free</button>
-        </mat-menu>
-
-        <button *ngIf="linkstatus === 'active'" mat-button color="warn" [matMenuTriggerFor]="menuremove"  #menuTrigger >Remove</button>
-        <mat-menu #menuremove>
-          <button mat-menu-item (click)="updateLink(link._id, 'removed')">Remove</button>
-        </mat-menu>
-        <button *ngIf="linkstatus === 'active' || linkstatus === 'removed'" mat-button color="primary" [matMenuTriggerFor]="menuban"  #menuTrigger >Banned</button>
-        <mat-menu #menuban>
-          <button mat-menu-item (click)="updateLink(link._id, 'banned')">Banned</button>
-        </mat-menu>
-      </mat-action-row>
-    </mat-expansion-panel>
-
-
-  </mat-accordion>-->
+</ng-container>
 </div>
+
+<mat-paginator [length]="links.length" [pageSize]="pageSize" (page)="onPageChange($event)"></mat-paginator>
+

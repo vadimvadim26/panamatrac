@@ -45,6 +45,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DomnsetstatComponent } from './domnsetstat/domnsetstat.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {AllscriptsComponent} from "./allscripts/allscripts.component";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -67,34 +68,35 @@ import {AllscriptsComponent} from "./allscripts/allscripts.component";
     DomaincreatorComponent,
     DomnsetstatComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatListModule,
-    MatCardModule,
-    MatDividerModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatMenuModule,
-    MatProgressBarModule,
-    MatChipsModule,
-    MatTabsModule,
-    MatSnackBarModule,
-    MatProgressSpinnerModule,
-    MatExpansionModule,
-    ClipboardModule,
-    MatCheckboxModule,
-    MatRadioModule,
-    MatDialogModule,
-    MatTooltipModule,
-    MatBadgeModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatInputModule,
+        MatListModule,
+        MatCardModule,
+        MatDividerModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatMenuModule,
+        MatProgressBarModule,
+        MatChipsModule,
+        MatTabsModule,
+        MatSnackBarModule,
+        MatProgressSpinnerModule,
+        MatExpansionModule,
+        ClipboardModule,
+        MatCheckboxModule,
+        MatRadioModule,
+        MatDialogModule,
+        MatTooltipModule,
+        MatBadgeModule,
+        MatPaginatorModule
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
