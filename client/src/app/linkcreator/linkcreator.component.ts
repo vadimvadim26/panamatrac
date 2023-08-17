@@ -429,7 +429,9 @@ constructor(private  linksService: LinksServices,
                                   geo: this.newbundle.geo,
                                   offer: this.newbundle.offer,
                                   preland: this.newbundle.name,
-                                  group_id: 96
+                                  group_id: 96,
+                                  sub2: this.sub2,
+                                  sub3: this.form.value.sub3
                                 }
                                 let newlink = {
                                   user_id: this.localuser.user_id,
@@ -450,8 +452,12 @@ constructor(private  linksService: LinksServices,
                                 }
                                 this.link = newlink
                                 this.fulldata = newlink
-
+                                let redirect = false
                                 this.campaignService.updateCampaign(hotcamp).subscribe(res => {
+                                })
+
+                                this.campaignService.updateLanding(this.link, this.newbundle.track_id, this.encryptedSub, redirect).subscribe(res => {
+                                  console.log('campupdate')
                                 })
 
                                 this.linksService.update(this.link).subscribe(links => {
