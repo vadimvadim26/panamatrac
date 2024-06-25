@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
-    'Api-Key': '2037cd82a8121f897a835f93965a7ae7',
+    'Api-Key': '78b91a492738b74ac8ed6b6f53e15467',
     'Accept': '*'
   })
 }
