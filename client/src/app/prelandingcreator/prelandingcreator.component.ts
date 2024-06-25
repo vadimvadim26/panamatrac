@@ -54,7 +54,7 @@ export class PrelandingcreatorComponent implements OnInit {
 
       this.http.get('/admin_api/v1/landing_pages/' + this.form.value.name, {
         headers: new HttpHeaders({
-          'Api-Key': '2037cd82a8121f897a835f93965a7ae7'
+          'Api-Key': '78b91a492738b74ac8ed6b6f53e15467'
         })
       }).subscribe((response) => {
         this.response = response
