@@ -27,7 +27,8 @@ app.use(
 	createProxyMiddleware({
 		target: 'http://178.62.251.36',
 		headers: {
-			"Connection": "keep-alive"
+			"Connection": "keep-alive",
+			'Authorization': 'Bearer 78b91a492738b74ac8ed6b6f53e15467'
 		},
 		proxyTimeout: 7000,
 	},'')
